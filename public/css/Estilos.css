@@ -1,0 +1,564 @@
+.Imagen_Login {
+    position: absolute;
+    width: 473px;
+    height: 216px;
+    left: calc(50% - 473px/2 + 8.5px);
+    top: 8px;
+    background: url(.png);
+}
+
+.Imagen_Per_Login {
+    position: absolute;
+    border-radius: 8px;
+    background-color: #E9ECEF;
+    padding: 10px 10px;
+    width: 21px;
+    height: 19px;
+    left: calc(50% - 15.75px/2);
+    top: 4px;
+}
+
+.Imagen_Lock_Login {
+    position: absolute;
+    border-radius: 8px;
+    background-color: #E9ECEF;
+    padding: 10px 10px;
+    width: 21px;
+    height: 19px;
+    left: calc(50% - 15.75px/2);
+    top: 52px;
+}
+
+.Recuadro_Per_Login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: calc(50% - 37px/2 - 160px);
+    top: calc(50% - 44px/2 - 131px);
+    /* Components/Bradcrumb fill */
+}
+
+.Formulario_Login {
+    position: absolute;
+    width: 473px;
+    height: 400px;
+    left: calc(50% - 473px/2 + 8.5px);
+    top: calc(50% - 543px/2 + 140.5px);
+    /* Default / White */
+    background: #FFFFFF;
+    /* Grey / Dark */
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.Formulario2_Login {
+    position: absolute;
+    width: 357px;
+    height: 400px;
+    left: calc(50% - 325px/2);
+    top: calc(50% - 296.06px/2 + 3.53px);
+}
+
+.Inicio_Sesion_Login {
+    position: absolute;
+    text-align: center;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 28px;
+    /* identical to box height, or 78% */
+    color: #BE3286;
+}
+
+.Textbox1_Login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    width: 300px;
+    height: 36px;
+    left: calc(50% + 40px - 3.5px);
+    top: 4px;
+    /* White */
+    background: #FFFFFF;
+    /* Grey / Dark */
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.Textbox2_Login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    width: 300px;
+    height: 36px;
+    left: calc(50% + 40px - 3.5px);
+    top: 52px;
+    /* White */
+    background: #FFFFFF;
+    /* Grey / Dark */
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.Boton_Login {
+    display: flex;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    padding: 14px 20px;
+    position: absolute;
+    width: 350px;
+    height: 48px;
+    left: 0px;
+    top: 128px;
+    background: #029395;
+    border-radius: 8px;
+}
+
+.Recupera_Login {
+    display: flex;
+    color: #BE3286;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 203.03px;
+    height: 20.03px;
+    left: 0px;
+    top: 180px;
+}
+
+
+/* Panel Navegacion */
+
+.PanelControles {
+    border: #BE3286;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    border-radius: 8px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: "PLogo PPizarra PPizarra PPizarra PPizarra" "PNav PControl PControl PControl PControl" "PNav PControl PControl PControl PControl" "PNav PControl PControl PControl PControl" "PNav PControl PControl PControl PControl";
+}
+
+.PanelControles .PanelLogo {
+    /*grid-column: 1/2;
+    grid-row: 1/2;*/
+    grid-area: PLogo;
+    background: #BE3286;
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+.PanelLogoImg {
+    position: relative;
+    min-height: 80px;
+    height: 80px;
+    max-height: 100px;
+}
+
+.PanelControles .PanelPizzara {
+    /*grid-column: 2/5;
+    grid-row: 1/2;*/
+    grid-area: PPizarra;
+    background: #FFFFFF;
+    min-width: 80%;
+}
+
+.PanelControles .PanelNavegacion {
+    /*grid-column: 1/2;
+    grid-row: 2/5;*/
+    grid-area: PNav;
+    background: #029395;
+    color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 20%;
+    max-height: 80%;
+    height: 800px;
+}
+
+.PanelControles .PanelControl {
+    /*grid-column: 2/5;
+    grid-row: 2/5;*/
+    grid-area: PControl;
+    background: #E9ECEF;
+    text-align: center;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+    min-width: 80%;
+    width: 100%;
+    max-height: 80%;
+}
+
+
+/* Lista Sujetos */
+
+.ListaTextoBusqueda {
+    background-image: url("../images/search.png");
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: 4px center;
+    padding-left: 36px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #78787A;
+    color: #4b4b4d;
+    height: 32px;
+    font-size: 18px;
+}
+
+.ListaTextoBusqueda:hover {
+    background-color: #F2F2F2;
+    border-color: #4b4b4d;
+    color: #2b2b2c;
+}
+
+.ListaBuscar {
+    color: #FFFFFF;
+    background-color: #029395;
+    height: 40px;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 16px;
+}
+
+.ListaBuscar:hover {
+    background-color: #015e5f;
+}
+
+.ListaBuscar:active {
+    background-color: #002525;
+}
+
+.ListaAgregar {
+    color: #FFFFFF;
+    background-color: #029395;
+    height: 40px;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 16px;
+    /*position: relative;
+    left: 50%;*/
+}
+
+.ListaAgregar:hover {
+    background-color: #015e5f;
+}
+
+.ListaAgregar:active {
+    background-color: #002525;
+}
+
+.ListaSujeto {
+    grid-area: Litem5;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: #D1D1D1;
+    font-size: 16px;
+    color: #2b2b2c;
+}
+
+.ListaAcomodo {
+    display: grid;
+    border-radius: 8px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: "Litem00 Litem00 Litem0 Litem0 Litem0" "Litem1 Litem1 Litem2 Litem2 Litem3" "Litem4 Litem5 Litem5 Litem5 Litem6";
+}
+
+
+/* Crear Sujeto */
+
+.CrearAcomodo {
+    background-color: #E9ECEF;
+    padding: 20px;
+    display: flex;
+    /*align-items: flex-start;*/
+    align-content: flex-start;
+}
+
+.CrearGuardar {
+    background-color: #FFFFFF;
+    color: #029395;
+    border-style: solid;
+    border-color: #029395;
+}
+
+
+/* Seguimiento Sujeto */
+
+.SeguimientoAcomodo {
+    display: grid;
+    border-radius: 8px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: "Sitem01 Sitem02 Sitem03 Sitem04 Sitem05";
+    justify-content: center;
+}
+
+.SeguimientoAcomodo2 {
+    display: grid;
+    border-radius: 8px;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas: "Sitem001 Sitem001 Sitem002 Sitem003 Sitem003 Sitem004 Sitem004 Sitem005 Sitem005";
+    justify-content: center;
+}
+
+.SeguimientoCentrado {
+    grid-gap: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.SeguimientoBoton {
+    color: #FFFFFF;
+    background-color: #029395;
+    height: 30px;
+    width: 90px;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 12px;
+}
+
+.SeguimientoBoton:hover {
+    background-color: #015e5f;
+}
+
+.SeguimientoBoton:active {
+    background-color: #002525;
+}
+
+.SeguimientoBotonSeleccionado {
+    color: #FFFFFF;
+    background-color: #BE3286;
+    height: 30px;
+    width: 90px;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 12px;
+}
+
+.SeguimientoBotonSeleccionado:hover {
+    background-color: #742152;
+}
+
+.SeguimientoEncabezado {
+    margin: 20px;
+    background-color: #FFFFFF;
+    color: #5c5c5c;
+    border-color: #D1D1D1;
+    border-style: solid;
+    border-radius: 8px;
+}
+
+.SeguimientoBordeado1 {
+    border-color: #D1D1D1;
+    border-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-top-right-radius: 0px;
+    grid-column: 1/2;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.SeguimientoBordeado2 {
+    border-color: #D1D1D1;
+    border-width: 1px;
+    border-top-style: solid;
+    border-top-left-radius: 0px;
+    grid-column: 2/6;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.SeguimientoBordeado3 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    grid-column: 1/6;
+    border-color: #D1D1D1;
+    border-width: 1px;
+    border-bottom-style: solid;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.SeguimientoTextual {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+
+/* Compromisos Sujeto */
+
+
+/* Evidencia Sujeto */
+
+.EvidenciaBoton1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    color: #FFFFFF;
+    background-color: #029395;
+    height: 40px;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 16px;
+    font-family: 'Arial';
+}
+
+.EvidenciaBoton1:hover {
+    background-color: #015e5f;
+}
+
+.EvidenciaBoton1:active {
+    background-color: #002525;
+}
+
+.EvidenciaBoton2 {
+    color: #FFFFFF;
+    background-color: #78787A;
+    height: 32px;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 12px;
+}
+
+.EvidenciaBoton2:hover {
+    background-color: #5c5c5c;
+}
+
+.EvidenciaBoton2:active {
+    background-color: #2b2b2c;
+}
+
+.EvidenciaCargar {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.EvidenciaCapsula {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    color: #FFFFFF;
+    background-color: #029395;
+    height: 40px;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 16px;
+    font-family: 'Arial';
+    cursor: pointer;
+}
+
+.EvidenciaCapsula:hover {
+    background-color: #015e5f;
+}
+
+.EvidenciaCapsula:active {
+    background-color: #002525;
+}
+
+
+/*the container must be positioned relative:*/
+
+.custom-select {
+    position: relative;
+    font-size: 120%;
+    font-family: inter
+}
+
+.custom-select select {
+    display: none;
+    /*hide original SELECT element:*/
+}
+
+.select-selected {
+    background-color: white;
+}
+
+
+/*style the arrow inside the select element:*/
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+
+/*point the arrow upwards when the select box is open (active):*/
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+
+/*style the items (options), including the selected item:*/
+
+.select-items div,
+.select-selected {
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/*style items (options):*/
+
+.select-items {
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+
+/*hide the items when the select box is closed:*/
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
