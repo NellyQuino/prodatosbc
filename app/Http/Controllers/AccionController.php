@@ -22,7 +22,7 @@ class AccionController extends Controller
     public function index()
     {
         $estrategias = Estrategia::all();
-        $acciones = Accion::paginate(8);
+        $acciones = Accion::orderBy('estrategia_id','asc')->paginate(8);
         return view('administrador.acciones.acciones', ['acciones' => $acciones, 'estrategias' => $estrategias]);
         //return view('ejes.nueva_accionx', compact('acciones'));
     }
@@ -34,7 +34,8 @@ class AccionController extends Controller
      */
     public function create()
     {
-        //
+        $estrategias = Estrategia::all();
+        return view('administrador.acciones.nueva_accion', compact('estrategias'));
     }
 
     /**
@@ -58,7 +59,8 @@ class AccionController extends Controller
             'estrategia_id' => $request->estrategia_id,
             'state' => '1',
         ]);
-        return back()->with('status', 'Creado con exito');
+        return redirect()->route('acciones.index')->with('status', 'Guardado con exito');
+
     }
 
     /**
@@ -69,7 +71,7 @@ class AccionController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -80,9 +82,10 @@ class AccionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $accion = Accion::find($id);
+        $estrategias = Estrategia::all();
+        return view('administrador.acciones.editar_accion', compact('estrategias', 'accion'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -105,7 +108,8 @@ class AccionController extends Controller
             'estrategia_id' =>request('estrategia_id'),
 
         ]);
-        return back()->with('status_update', 'Editado con éxito');
+        return  redirect()->route('acciones.index')->with('status_update', 'Actualizado con éxito');
+
     }
 
     /**

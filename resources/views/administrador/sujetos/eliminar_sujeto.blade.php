@@ -4,7 +4,7 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Eliminar usuario </h4>
+                <h4 class="modal-title">Eliminar sujeto obligado </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" arial-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

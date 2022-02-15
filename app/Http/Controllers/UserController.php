@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CompromisoRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Validation\Rule;
 //PDF'S
 use Dompdf\Dompdf; // Descargado composer require dompdf/dompdf
 use Dompdf\Options;
@@ -133,6 +135,7 @@ class UserController extends Controller
             'email' => ['required', 'email', 'max:255'],
             'number_user' => ['required', 'string'],
             'number_user' => ['required','string','size:5','unique:users'],
+             Rule::unique('users')->ignore($user->id)
         ],[
     
             'number_user.required' => 'El campo ID es obligatorio.',
@@ -184,16 +187,16 @@ class UserController extends Controller
     //Muestra acciones
     public function seguimiento_eje(Request $request, User $user, Eje $eje) {
         $ejes = Eje::all();
-        $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state, e5.archive FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+        /*$acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state, e5.archive FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
         (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user->id, 'EjId' => $eje->id]);
         
         $acciones = array();
 
         foreach($acciones_1 as $prueba) {
             array_push($acciones, array('Id' => (int)$prueba->id, 'Nombre' => (string)$prueba->name, 'Plan_Accion' => (string)$prueba->action_plan, 'Fecha_Implementacion' => (string)$prueba->date_implementation, 'Estado' => (boolean)$prueba->state, 'Registro' => (string)$prueba->archive));
-        }
+        }*/ 
         //Input::get('datapack'));
-        $compromisos = null;
+        $compromisos =null;
         if ($request->input('datapack') == "normal") {
 
         }
@@ -212,16 +215,73 @@ class UserController extends Controller
             //dd($compromisos);
             $compromisos->save();
         }
+
+
+        $acciones = array();
+        $txt1 = "";
+        if ($request->input('campox') == "Todo") {
+            // 
+            $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state, e5.archive, e5.detail FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+            (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user->id, 'EjId' => $eje->id]);
+        
+            $acciones = array();
+
+            foreach($acciones_1 as $prueba) {
+                array_push($acciones, array('Id' => (int)$prueba->id, 'Nombre' => (string)$prueba->name, 'Plan_Accion' => (string)$prueba->action_plan, 'Fecha_Implementacion' => (string)$prueba->date_implementation, 'Estado' => (boolean)$prueba->state, 'Registro' => (string)$prueba->archive, 'Detalle' => (string)$prueba->detail));
+            }
+        }
+        else if ($request->input('campox') == "Sin Revision") {
+            
+            $txt1 = "Aceptado";
+            $txt2 = "Incompleto"; // <=> es !=
+            $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state, e5.archive, e5.detail FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+            (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (e5.detail IS NULL) && (e5.archive IS NOT NULL) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user->id, 'EjId' => $eje->id]);
+            $acciones = array();
+
+            foreach($acciones_1 as $prueba) {
+                array_push($acciones, array('Id' => (int)$prueba->id, 'Nombre' => (string)$prueba->name, 'Plan_Accion' => (string)$prueba->action_plan, 'Fecha_Implementacion' => (string)$prueba->date_implementation, 'Estado' => (boolean)$prueba->state, 'Registro' => (string)$prueba->archive, 'Detalle' => (string)$prueba->detail));
+            }
+            //dd($txt1, $acciones);
+        }
+        else if ($request->input('campox') == "Incompleto") {
+            $txt1 = "Incompleto";
+            $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state, e5.archive, e5.detail  FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+            (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (e5.detail = :txt1) && (:SujId = e4.id && :EjId = e1.id)', ['txt1' => $txt1, 'SujId' => $user->id, 'EjId' => $eje->id]);
+        
+            $acciones = array();
+
+            foreach($acciones_1 as $prueba) {
+                array_push($acciones, array('Id' => (int)$prueba->id, 'Nombre' => (string)$prueba->name, 'Plan_Accion' => (string)$prueba->action_plan, 'Fecha_Implementacion' => (string)$prueba->date_implementation, 'Estado' => (boolean)$prueba->state, 'Registro' => (string)$prueba->archive, 'Detalle' => (string)$prueba->detail));
+            }
+        }
+        else if ($request->input('campox') == "Aceptado") {
+            $txt1 = "Aceptado";
+            $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state, e5.archive, e5.detail  FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+            (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (e5.detail = :txt1) && (:SujId = e4.id && :EjId = e1.id)', ['txt1' => $txt1, 'SujId' => $user->id, 'EjId' => $eje->id]);
+        
+            $acciones = array();
+            
+
+            foreach($acciones_1 as $prueba) {
+                array_push($acciones, array('Id' => (int)$prueba->id, 'Nombre' => (string)$prueba->name, 'Plan_Accion' => (string)$prueba->action_plan, 'Fecha_Implementacion' => (string)$prueba->date_implementation, 'Estado' => (boolean)$prueba->state, 'Registro' => (string)$prueba->archive, 'Detalle' => (string)$prueba->detail));
+            }
+        }
+
         $plantilla = "Seguimiento Sujeto";
         return view('administrador.sujetos.SeguimientoSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'acciones' => $acciones, 'archivos' => NULL]);
     }
     //Muestra los archivos relacionados con las acciones que a su vez que relacionan con las estrategias y estas con los ejes 
-    public function seguimiento_eje_accion(User $user, Eje $eje, Accion $accion) {
+    public function seguimiento_eje_accion(Request $request, User $user, Eje $eje, Accion $accion) {
         $ejes = Eje::all();
+        $txt1 = "";
+        $pesox = 0;
+        $pesof = 0;
+        $subfijo = "bytes";
+        // 
         $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
         (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user->id, 'EjId' => $eje->id]);
-        
-        
+    
+    
         $acciones = array();
         $archivos = array();
 
@@ -233,13 +293,20 @@ class UserController extends Controller
         (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.Id && :EjId = e1.Id && :AcId = e3.Id)', ['SujId' => $user->id, 'EjId' => $eje->id, 'AcId' => $accion->id]);
         
         foreach($archivos_1 as $prueba2) { // Añadir Detalle en archivos
-            array_push($archivos, array('Archivo' => (string)$prueba2->archive, 'Fecha' => (string)$prueba2->date_implementation, 'Registro' => (string)$prueba2->id, 'Detalle' => (string)$prueba2->detail, 'Estado' => (string)$prueba2->state));
+            $pesox = Storage::disk('compromisos')->size($prueba2->archive);
+            if ($pesox > 0) {
+                if ($pesox < 1024) { $subfijo = "bytes"; }
+                else if ($pesox < 1024*1024) { $subfijo = "KB"; $pesof = $pesox/1024; }
+                else if ($pesox < 1024*1024*1024) { $subfijo = "MB"; $pesof = $pesox/1024/1024; }
+                else if ($pesox < 1024*1024*1024*1024) { $subfijo = "GB"; $pesof = $pesox/1024/1024/1024; }
+            }
+            array_push($archivos, array('Archivo' => (string)$prueba2->archive, 'Fecha' => (string)$prueba2->date_implementation, 'Registro' => (string)$prueba2->id, 'Detalle' => (string)$prueba2->detail, 'Estado' => (string)$prueba2->state, 'Peso' => (string)(round($pesof,2) . " " . $subfijo)));
         }
-      
+        
         $plantilla = "Seguimiento Sujeto";
+
         return view('administrador.sujetos.SeguimientoSujetoEjeAccion', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'acciones' => $acciones, 'archivos' => $archivos]);
     }
-
 
     public function evidencias_sujeto(){
         $ejes = Eje::all();
@@ -408,5 +475,18 @@ class UserController extends Controller
 
         return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user2, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'acciones' => $acciones, 'archivos' => $archivos]);
         //return back()->with(['estado' => 'Eliminado', 'deteccion' => $id]);
+    }
+    public function descargar_archivo($id) {
+        $compromiso = Compromiso::where('id', $id)->first();
+        //dd($compromiso);
+        $nombre = $compromiso->archive;
+        //$archivo = Storage::disk('compromisos')->get($nombre);
+        //dd($archivo);
+        //$archivo = public_path('compromisos')."\\"."$nombre";
+        $ruta = Storage::disk('compromisos')->getDriver()->getAdapter()->getPathPrefix();
+        $archivo = $ruta."\\$nombre";
+        
+        return Response::download($archivo, $nombre, array('Content-Type: application/zip','Content-Length: '. filesize($archivo)));
+        //return Response::download($archivo);
     }
 }

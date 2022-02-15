@@ -24,12 +24,11 @@ class EstrategiaController extends Controller
     {
         $ejes = Eje::all();
 
-        $estrategias = Estrategia::paginate(8);
+        $estrategias = Estrategia::orderBy('eje_id','asc')->paginate(8);
         return view('administrador.estrategias.estrategias', compact('estrategias', 'ejes'));
         
 
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -37,7 +36,8 @@ class EstrategiaController extends Controller
      */
     public function create()
     {
-        //
+        $ejes= Eje::all();
+        return view('administrador.estrategias.nueva_estrategia', compact('ejes'));
     }
 
     /**
@@ -63,7 +63,8 @@ class EstrategiaController extends Controller
             'eje_id' => $request->eje_id,
             'state' => '1',
         ]);
-        return back()->with('status', 'Creado con exito');
+        return redirect()->route('estrategias.index')->with('status', 'Guardado con exito');
+
     }
 
     /**
@@ -85,6 +86,9 @@ class EstrategiaController extends Controller
      */
     public function edit($id)
     {
+        $estrategia = Estrategia::find($id);
+        $ejes = Eje::all();
+        return view('administrador.estrategias.editar_estrategia', compact('estrategia', 'ejes'));
         
     }
 
@@ -112,7 +116,8 @@ class EstrategiaController extends Controller
 
         ]);
 
-        return back()->with('status_update', 'Editado con éxito');
+        return  redirect()->route('estrategias.index')->with('status_update', 'Actualizado con éxito');
+
     }
 
     /**

@@ -34,7 +34,7 @@ class CompromisoController extends Controller
         $acciones = Accion::all();
        // $data = User::where('slug', $user)->get();
 
-        $compromisos = Compromiso::where('user_id', Auth::user()->id)->get();
+        $compromisos = Compromiso::where('user_id', Auth::user()->id)->orderBy('accion_id','asc')->paginate(8);
         //dd(User::all());
         //dd(Auth::user()->id, Compromiso::where('user_id', Auth::user()->id)->get());
         return view('sujeto.compromisos', compact('compromisos', 'user','ejes', 'acciones', 'estrategias'));
@@ -139,7 +139,8 @@ class CompromisoController extends Controller
             'state' => '1',
  
          ]);
-         return back()->with('status_update', 'Actualizado con éxito');
+         return  redirect()->route('compromiso.index')->with('status_update', 'Actualizado con éxito');
+
         }
 
     /**

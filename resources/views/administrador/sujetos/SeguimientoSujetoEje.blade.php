@@ -17,6 +17,20 @@
         </div>
     </div>
 
+    <div class="">
+        <div class="" style="background-color: #FFFFFF;">
+            <form action="{{ route('sujeto.seguimiento.eje', ['user' => $usuario, 'eje' => $supereje]) }}" method="POST">
+                @csrf
+                <select name="campox" id="">
+                    <option value="Todo">Todo</option>
+                    <option value="Sin Revision">Sin Revision</option>
+                    <option value="Incompleto">Incompleto</option>
+                    <option value="Aceptado">Aceptado</option>
+                </select>
+                <input type="submit" value="Buscar" class="EvidenciaCapsula"> <br><br>
+            </form>
+        </div>
+    </div>
 
     <div class="SeguimientoEncabezado">
         <div>
@@ -53,7 +67,6 @@
                                 <p>{{ $stringconversor }}</p>
                             </td>
                             <td>
-                                
                                 @if ((string)$accion['Registro'] != NULL)
                                     @php
                                     $stringconversor = (int)$accion['Id']
@@ -80,7 +93,15 @@
                                 @php
                                 $stringconversor = (string)$accion['Estado']
                                 @endphp
-                                <p>{{ $stringconversor }}</p>
+                                    @if ((string)$accion['Detalle'] == NULL && (int)$accion['Estado'] == 0)
+                                        <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
+                                    @elseif ((string)$accion['Detalle'] == "Incompleto" && (int)$accion['Estado'] == 0)
+                                        <p><img src="{{url('images/Icon_estado2.png')}}" alt=""></p>
+                                    @elseif ((string)$accion['Detalle'] == "Fuera de Tiempo" && (int)$accion['Estado'] == 0)
+                                        <p><img src="{{url('images/Icon_estado3.png')}}" alt=""></p>
+                                    @elseif ((string)$accion['Detalle'] == "Aceptado" && (int)$accion['Estado'] == 1)
+                                        <p><img src="{{url('images/Icon_estado1.png')}}" alt=""></p>
+                                    @endif
                             </td>
                         </tr>
                     @else
@@ -118,7 +139,15 @@
                                 @php
                                 $stringconversor = (string)$accion['Estado']
                                 @endphp
-                                <p>{{ $stringconversor }}</p>
+                                    @if ((string)$accion['Detalle'] == NULL && (int)$accion['Estado'] == 0)
+                                        <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
+                                    @elseif ((string)$accion['Detalle'] == "Incompleto" && (int)$accion['Estado'] == 0)
+                                        <p><img src="{{url('images/Icon_estado2.png')}}" alt=""></p>
+                                    @elseif ((string)$accion['Detalle'] == "Fuera de Tiempo" && (int)$accion['Estado'] == 0)
+                                        <p><img src="{{url('images/Icon_estado3.png')}}" alt=""></p>
+                                    @elseif ((string)$accion['Detalle'] == "Aceptado" && (int)$accion['Estado'] == 1)
+                                        <p><img src="{{url('images/Icon_estado1.png')}}" alt=""></p>
+                                    @endif
                             </td>
                         </tr>
                     @endif

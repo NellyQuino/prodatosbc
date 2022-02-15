@@ -20,14 +20,6 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-@elseif(session('status_delete') == 0)
-<div class="alert alert-warning alert-dismissible fade show" id="error_alert"role="alert">
- fd
-  <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
 @endif
 
 

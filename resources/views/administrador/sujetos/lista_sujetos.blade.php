@@ -24,18 +24,39 @@
             </div>
         </form>
     </div>
-    <div class="col-2">
-        <div class="form-check form-switch">
-            <input class="form-check-input" style="width: 50px; height: 25px;" type="checkbox" value="" id="myCheckBoxID">
+</div>
+<div class="row justify-content-end mt-2">
+    <div class="col-2 align-self-end">
+    <div class="form-check form-switch">
+        <input class="form-check-input" style="width: 50px; height: 25px;" type="checkbox" value="" id="myCheckBoxID">
             <label class="form-check-label" for="myCheckBoxID" style="color: #848483 ;font-size:20px;font-family:inter;">
-                Eliminar
+            Activar eliminar
             </label>
         </div>
+
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12 mt-3">
         @include('alertas.alerta')
+        @if ($errors->any())
+        <div class="alert alert-warning alert-dismissible fade show" id="error_alert" role="alert">
+            <div class="errors">
+                Por favor corrige los siguientes errores
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+
+        @endif
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
@@ -104,27 +125,4 @@
     </div>
 </div>
 @include('administrador.sujetos.nuevo_sujeto')
-@endsection
-@section('script')
-<script>
-    //jQuery listen for checkbox change
-    $(document).ready(function() {
-        $("#myCheckBoxID").on('change', function() {
-            console.log('Si entro');
-            var rowCount = $('#myTable tr').length;
-            if (this.checked) {
-                for (let i = 0; i < rowCount; i++) {
-                    $('#button_eliminar_' + i).prop('disabled', false);
-
-                }
-            } else {
-                for (let i = 0; i < rowCount; i++) {
-                    $('#button_eliminar_' + i).prop('disabled', true);
-
-                }
-            }
-        });
-    });
-</script>
-
 @endsection

@@ -15,8 +15,8 @@
                     @csrf @method('PUT')
                     <div class="form-group">
                     <div  class="mt-3"  >
-                            <label for="password" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Contraseña</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Contraseña" autocomplete="new-password" >
+                            <label for="password" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;" >Contraseña</label>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Contraseña" autocomplete="new-password" required >
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
                         </div>
                         <div class="mt-3" >
                             <label for="password-confirm" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Confirmar contraseña</label>
-                            <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Confirmar contraseña" autocomplete="new-password">
+                            <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="Confirmar contraseña" autocomplete="new-password" required>
                             @error('password_confirmation')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

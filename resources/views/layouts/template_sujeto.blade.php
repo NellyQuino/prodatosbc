@@ -39,10 +39,10 @@
     <!--Inicio NavBar-->
     <header class="navbar-white sticky-top bg-white p-0  shadow-sm">
         <div class="container-fluid d-flex align-items-center">
-           
-            <p class="h1" style="font-family: Inter; color:#BD3284;">Pizarra de avances</p>
-            <img class="" src="{{ asset('/images/logo_PRODATOS.fw.png') }}" width="300" height="150" alt="Bootstrap">
-            <button class="btn btn-light dropdown-toggle ms-auto" data-toggle="tooltip" title="Cerrar sesión" style="color: #059B97;" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false"></button>
+            <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}" width="300" height="150" alt="Bootstrap">
+            <p class="h1 ms-auto" style="font-family: Inter; color:#BD3284;">Pizarra de avances</p>
+
+            <button class="btn btn-light dropdown-toggle ms-auto" data-toggle="tooltip" title="Cerrar sesión" style="color: #059B97" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false"></button>
             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownMenuButton2">
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -52,7 +52,10 @@
                     @csrf
                 </form>
             </ul>
-        <div>
+
+        </div>
+        </div>
+    </header>
     </header>
     <!--Fin NavBar-->
     <!--Inicio contenido-->

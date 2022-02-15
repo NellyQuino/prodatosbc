@@ -25,7 +25,7 @@
                         </div>
                         <div class="mt-2">
                             <label for="description" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Objetivo</label>
-                            <textarea name="description" id="description" type="text" class="form-control @error('description') is-invalid @enderror" cols="30" rows="10" placeholder="Objetivo del eje">{{ old('description') }}</textarea>
+                            <textarea name="description" id="description" type="text" class="form-control @error('description') is-invalid @enderror" cols="30" rows="10" placeholder="Objetivo del eje"  required>{{ old('description') }}</textarea>
                             @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

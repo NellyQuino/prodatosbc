@@ -24,6 +24,7 @@
             @if ($eje->state== 1)
                 <form action="{{ route('sujeto.seguimiento.eje', ['user' => $usuario, 'eje' => $eje]) }}" method="POST">
                     @csrf
+                    <input type="hidden" name="campox" value="Todo">
                     <input type="hidden" name="datapack" value="normal">
                     <input type="hidden" name="{{ $usuario }}" value = "{{ $usuario }}">
                     @if (empty($supereje))

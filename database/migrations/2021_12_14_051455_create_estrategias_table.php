@@ -16,7 +16,7 @@ class CreateEstrategiasTable extends Migration
         Schema::create('estrategias', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('eje_id')->unsigned();//Variable para la relacin con la tabla user
+            $table->bigInteger('eje_id')->unsigned();//Variable para la relacion con la tabla user
 
             $table->string('name');
             $table->text('description');

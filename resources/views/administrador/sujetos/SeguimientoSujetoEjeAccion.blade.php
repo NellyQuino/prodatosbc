@@ -1,4 +1,3 @@
-
 @extends('layouts.template_admin')
 
 @section('content')
@@ -23,7 +22,7 @@
                     </td>
                 </tr>
                 @php
-                $renglon2 = 0; $objeto = 0;
+                $renglon2 = 0; $objeto = 0; $ark = 0;
                 $stringconversor2 = ""
                 @endphp
                 @foreach ($archivos as $archivo)
@@ -71,7 +70,7 @@
                             @endif
                             </td>
                             <td>
-                                <p>muchos.Kb</p>
+                                <p>{{(string)$archivo['Peso']}}</p>
                             </td>
                         </tr>
                     @else
@@ -121,7 +120,13 @@
                     @endif
                 </td>
                 <td style="width: 35%">
-                    <p><img src="{{url('images/Icon_descarga.png')}}" alt=""></p>
+                    @php
+                        $ark = (int)$objeto['Registro']
+                    @endphp
+                    <form action="{{ route('descargar_archivo', $ark) }}" method="POST">
+                        @csrf
+                        <input type="image" src="{{url('images/Icon_descarga.png')}}" alt="">
+                    </form>
                 </td>
             </tr>
         </table>
@@ -129,13 +134,14 @@
     <div>
         <form action="{{ route('sujeto.seguimiento.eje', ['user' => $usuario, 'eje' => $supereje]) }}" method="POST">
             @csrf
+            <input type="hidden" name="campox" value="Todo">
             <input type="hidden" name="datapack" value="regreso">
             <input type="hidden" name="analisis_accion" value="{{(string)$archivo['Registro']}}">
             <select name="Campo" id="">
                 <option value="Incompleto">Incompleto</option>
                 <option value="Aceptado">Aceptado</option>
             </select>
-            <input type="submit" value="Guardar"> <br><br>
+            <input type="submit" value="Guardar" class="EvidenciaCapsula"> <br><br>
             <textarea name="Text1" cols="40" rows="5" style="width:80%; height:100px;" placeholder="Comentarios"></textarea>
         </form>
     </div>

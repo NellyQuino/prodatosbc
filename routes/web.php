@@ -49,19 +49,23 @@ Route::delete('/ejes/eliminar_eje/{eje_id}','EjeController@destroy')->name('eje.
 //-------------------------->ADMINISTRADOR->ESTRATEGIAS<----------------------------------
 Use App\Models\Eje;
 Route::get('/estrategias', 'EstrategiaController@index')->name('estrategias.index');
+Route::get('/estrategias/nueva_estrategia', 'EstrategiaController@create')->name('estrategia.create');
 Route::post('/estrategias/nueva_estrategia','EstrategiaController@store')->name('estrategia.store');
+Route::get('/estrategias/editar_estrategia/{estrategia}','EstrategiaController@edit')->name('estrategia.edit');
 Route::put('/estrategias/editar_estrategia/{estrategia}','EstrategiaController@update')->name('estrategia.update');
 Route::delete('/estrategias/eliminar_estrategia/{estrategia_id}','EstrategiaController@destroy')->name('estrategia.destroy');
 //-------------------------->ADMINISTRADOR->ACCIONES<----------------------------------
 Route::get('/acciones', 'AccionController@index')->name('acciones.index');
+Route::get('/acciones/nueva_accion', 'AccionController@create')->name('accion.create');
 Route::post('/acciones/nueva_accion','AccionController@store')->name('accion.store');
+Route::get('/acciones/editar_accion/{accion}','AccionController@edit')->name('accion.edit');
 Route::put('/acciones/editar_accion/{accion}','AccionController@update')->name('accion.update');
 Route::delete('/acciones/eliminar_accion/{accion_id}','AccionController@destroy')->name('accion.destroy');
 //-------------------------->ADMINISTRADOR->SUJETO<----------------------------------
 Route::post('panel-seguimiento/{user}', 'UserController@seguimiento')->name('sujeto.seguimiento');
 Route::post('panel-seguimiento/{user}/{eje}',  'UserController@seguimiento_eje')->name('sujeto.seguimiento.eje');
 Route::post('panel-seguimiento/{user}/{eje}/{accion}',  'UserController@seguimiento_eje_accion')->name('sujeto.seguimiento.eje.accion');
-
+Route::post('descargar/{id}','UserController@descargar_archivo')->name('descargar_archivo');
 
 //-------------------------->SUJETO<----------------------------------}
 Route::get('panel-evidencias','UserController@evidencias_sujeto')->name('evidencia');

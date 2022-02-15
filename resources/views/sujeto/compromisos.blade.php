@@ -4,7 +4,7 @@
 <div class="text-left col-md-5 mt-2">
     <label style="color: #848483 ;font-size:200%;font-family:inter;" for="">Implementación</label>
 </div>
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="form-group">
         <div class="row  mt-3">
             <div class="text-left col ms-2">
@@ -13,7 +13,7 @@
             <div class="text-right col-sm-2 ">
                 <a type="button" class="btn btn-primary" style="background: #059B97;" href="{{ route('compromiso.create') }}"><i class="fas fa-plus"></i>
                     Agregar compromiso</a>
-                
+
             </div>
         </div>
         @if($compromisos->count())
@@ -54,6 +54,12 @@
                         @endforeach
                     </tbody>
                 </table>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">{{$compromisos->links()}}</li>
+                    </ul>
+                </nav>
+
                 @else
                 <div class="mt-5 text-center">
                     <label style="font-size:30px; font-family:inter; font-weight: bold;">No hay compromisos en la lista. De click al botón +Agregar compromisos</label>
@@ -61,6 +67,6 @@
             </div>
         </div>
         @endif
-    </div>    
+    </div>
 </div>
 @endsection
