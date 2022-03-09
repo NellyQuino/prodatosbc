@@ -96,7 +96,7 @@
                             </form>
                         </td>
                         <td style="width:5%;">
-                          <button type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"><i class="fa fa-file-text"></i>No2</button>
+                          <button type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"><i class="fa fa-file-text"></i></button>
                         </td>
                         <td style="width:5%;">
                             <button type="button" class="btn" data-bs-toggle="modal" data-toggle="tooltip" title="Editar sujeto obligado" data-bs-target="#modal-update-user-{{ $user->id }}" style="background: #BD3284; color:white;"><i class="fas fa-edit"></i></button>
