@@ -493,7 +493,7 @@ class UserController extends Controller
     public function user_pdf($id)
     {
         $user = User::where('id', $id)->first();
-        $compromiso = Compromiso::where('id', $id)->first();
+        $compromiso = Compromiso::where('user_id', $id)->first();
         return view('administrador.sujetos.pdf', compact('user','compromiso'));
     }
 }
