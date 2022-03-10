@@ -11,6 +11,7 @@
         <td>Nombre:</td>
         <td>{{$user->username}}</td>
       </tr>
+      @foreach ($compromisos as $compromiso)
       <tr>
         <td>Compromisos: </td>
         <td>{{$compromiso->action_plan}}</td>
@@ -23,6 +24,7 @@
         <td>Status: </td>
         <td>{{$compromiso->detail}}</td>
       </tr>
+      @endforeach
     </table>
   </body>
 </html>
