@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Reporte ...
+    <table>
+      <tr>
+        <td>Nombre:</td>
+        <td>{{$user->username}}</td>
+      </tr>
+      <tr>
+        <td>Compromisos: </td>
+        <td>{{$compromiso->action_plan}}</td>
+      </tr>
+      <tr>
+        <td>Fecha: </td>
+        <td>{{$compromiso->created_at}}</td>
+      </tr>
+      <tr>
+        <td>Status: </td>
+        <td>{{$compromiso->detail}}</td>
+      </tr>
+    </table>
+  </body>
+</html>

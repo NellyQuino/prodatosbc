@@ -67,6 +67,8 @@ Route::post('panel-seguimiento/{user}/{eje}',  'UserController@seguimiento_eje')
 Route::post('panel-seguimiento/{user}/{eje}/{accion}',  'UserController@seguimiento_eje_accion')->name('sujeto.seguimiento.eje.accion');
 Route::post('descargar/{id}','UserController@descargar_archivo')->name('descargar_archivo');
 
+Route::get('panel-seguimiento-pdf/{user}', 'UserController@user_pdf')->name('sujeto.seguimiento.pdf');
+
 //-------------------------->SUJETO<----------------------------------}
 Route::get('panel-evidencias','UserController@evidencias_sujeto')->name('evidencia');
 Route::post('panel-evidencias','UserController@evidencias_sujeto')->name('evidencias');
@@ -82,5 +84,3 @@ Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name(
 Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update');
 Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy');
 //---------------------->EVIDENCIAS-------------------------------
-
-
