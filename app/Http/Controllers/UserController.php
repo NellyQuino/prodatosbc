@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Validation\Rule;
 //PDF'S
+use PDF;
 use Dompdf\Dompdf; // Descargado composer require dompdf/dompdf
 use Dompdf\Options;
 
@@ -495,6 +496,10 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         // $compromiso = Compromiso::where('user_id', $id)->first();
         $compromisos = Compromiso::where('user_id', $id)->paginate();
-        return view('administrador.sujetos.pdf', compact('user','compromisos'));
+
+        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'compromisos'=>$compromisos]);
+        // $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->stream();
+        // return view('administrador.sujetos.pdf', compact('user','compromisos'));
     }
 }

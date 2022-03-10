@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    Reporte ...
+    <h1>Reporte ...</h1>
     <table>
       <tr>
         <td>Nombre:</td>
