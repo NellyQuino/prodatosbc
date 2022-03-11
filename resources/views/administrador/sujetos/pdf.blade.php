@@ -2,29 +2,34 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Document</title>
+
+    <link href="css/pdf.css" rel="stylesheet" type="text/css">
+    
   </head>
   <body>
-    <h1>Reporte ...</h1>
+    <header></header>
+    <h1>Reporte de {{$user->username}}</h1>
     <table>
-      <tr>
+      <!--<tr>
         <td>Nombre:</td>
         <td>{{$user->username}}</td>
-      </tr>
+      </tr>-->
       @foreach ($compromisos as $compromiso)
       <tr>
-        <td>Compromisos: </td>
-        <td>{{$compromiso->action_plan}}</td>
+        <td id="titulo">Compromisos: </td>
+        <td id="subtitulo">{{$compromiso->action_plan}}</td>
       </tr>
       <tr>
-        <td>Fecha: </td>
-        <td>{{$compromiso->created_at}}</td>
+        <td id="titulo">Fecha: </td>
+        <td id="subtitulo">{{$compromiso->created_at}}</td>
       </tr>
       <tr>
-        <td>Status: </td>
-        <td>{{$compromiso->detail}}</td>
+        <td id="titulo">Status: </td>
+        <td id="subtitulo">{{$compromiso->detail}}</td>
       </tr>
       @endforeach
     </table>
+    <footer></footer>
   </body>
 </html>

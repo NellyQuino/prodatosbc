@@ -97,7 +97,7 @@
                         </td>
                         <td style="width:5%;">
                           <!-- <button type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"><i class="fa fa-file-text"></i></button> -->
-                          <a type="button" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $user->id) }}"><i class="fa fa-file-text"></i></a>
+                          <a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $user->id) }}"><i class="fa fa-file-text"></i></a>
                         </td>
                         <td style="width:5%;">
                             <button type="button" class="btn" data-bs-toggle="modal" data-toggle="tooltip" title="Editar sujeto obligado" data-bs-target="#modal-update-user-{{ $user->id }}" style="background: #BD3284; color:white;"><i class="fas fa-edit"></i></button>
