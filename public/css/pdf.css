@@ -1,0 +1,42 @@
+@page{
+    margin: 0cm 0cm;
+}
+
+body{
+    margin: 2cm 2.5cm 2cm 2.5cm;
+}
+
+h1{
+    color: #059b97;
+    margin: 0;
+}
+
+td{
+    color: #bd3284;
+}
+#titulo{
+    font-size: 20px;
+}
+
+#subtitulo{
+    font-size: 18px;
+}
+
+header{
+    position: fixed;
+    top: 0cm;
+    left: 0cm;
+    right: 0cm;
+    height: 1cm;
+    background-color: #059b97;
+}
+
+footer{
+    position: fixed;
+    bottom: 0cm;
+    left: 0cm;
+    right: 0cm;
+    height: 2cm;
+    background-color: #059b97;
+}
+

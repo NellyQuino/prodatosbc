@@ -96,10 +96,14 @@
                             </form>
                         </td>
                         <td style="width:5%;">
+                          <!-- <button type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"><i class="fa fa-file-text"></i></button> -->
+                          <a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $user->id) }}"><i class="fa fa-file-text"></i></a>
+                        </td>
+                        <td style="width:5%;">
                             <button type="button" class="btn" data-bs-toggle="modal" data-toggle="tooltip" title="Editar sujeto obligado" data-bs-target="#modal-update-user-{{ $user->id }}" style="background: #BD3284; color:white;"><i class="fas fa-edit"></i></button>
                         </td>
                         <td style="width:5%;">
-                            <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Editar contraseña" data-bs-toggle="modal" data-bs-target="#modal-update-password-{{ $user->id }}"><i class="fas fa-unlock"></i></i></button>
+                            <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Editar contraseña" data-bs-toggle="modal" data-bs-target="#modal-update-password-{{ $user->id }}"><i class="fas fa-unlock"></i></button>
                         </td>
 
                         <td style="width:5%;">

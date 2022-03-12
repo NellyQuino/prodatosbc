@@ -86,3 +86,8 @@ database:
 
 php artisan migrate:refresh
 php artisan db:seed
+
+----
+Install dumpdf
+
+composer require barryvdh/laravel-dompdf
