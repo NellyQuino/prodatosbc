@@ -8,6 +8,7 @@ body{
 
 h1{
     color: #059b97;
+    margin: 0;
 }
 
 td{
@@ -38,3 +39,4 @@ footer{
     height: 2cm;
     background-color: #059b97;
 }
+
