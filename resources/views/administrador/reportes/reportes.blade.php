@@ -48,6 +48,7 @@
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
+                    <th>Seleccionar</th>
                     <th>ID</th>
                     <th>Sujeto Obligado</th>
                     <th>Correo electrónico</th>
@@ -68,6 +69,9 @@
 
                     @forelse ($users as $user)
                     <tr>
+                      <td style="width:5%;" class="align-top">
+                        <input type="checkbox" id="" name="" value="">
+                      </td>
                         <td style="width:5%;" class="align-top">
                             <p>{{$user->number_user}}</p>
                         </td>
@@ -82,7 +86,7 @@
                         </td>
                         <td style="width:5%;">
                           <!-- <button type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"><i class="fa fa-file-text"></i></button> -->
-                          <a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $user->id) }}"><i class="fa fa-file-text"></i></a>
+                          <a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $user->id) }}"><i class="fa fa-file-pdf-o"></i></a>
                         </td>
                     </tr>
                     @endforeach
