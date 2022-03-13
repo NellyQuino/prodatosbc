@@ -11,7 +11,7 @@
         </button>
     </div>
     <div class="col-xl-12 my-3">
-        <form action="{{ route('user.index') }}" method="GET">
+        <form action="{{ route('reportes.index') }}" method="GET">
             @csrf
             <div class="form-row d-flex">
                 <div class="col-sm-4">
