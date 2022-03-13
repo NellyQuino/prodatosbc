@@ -108,6 +108,9 @@
                     <a href="{{ route('ejes.index') }}">
                         <span><i class="fas fa-list"></i>Panel</span>
                     </a>
+                    <a href="{{ route('reportes.index') }}">
+                        <span><i class="fa fa-file-text-o"></i>Reportes</span>
+                    </a>
                 </div>
             </nav>
             <!--Fin Siderbar-->

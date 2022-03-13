@@ -67,7 +67,10 @@ Route::post('panel-seguimiento/{user}/{eje}',  'UserController@seguimiento_eje')
 Route::post('panel-seguimiento/{user}/{eje}/{accion}',  'UserController@seguimiento_eje_accion')->name('sujeto.seguimiento.eje.accion');
 Route::post('descargar/{id}','UserController@descargar_archivo')->name('descargar_archivo');
 
-Route::get('panel-seguimiento-pdf/{user}', 'UserController@user_pdf')->name('sujeto.seguimiento.pdf');
+//------------------------>ADMINISTRADOR->REPORTES<----------------------------------------------------
+
+Route::get('/reportes', 'ReportsController@index')->name('reportes.index');
+Route::get('reportes-pdf/{user}', 'UserController@user_pdf')->name('sujeto.seguimiento.pdf');
 
 //-------------------------->SUJETO<----------------------------------}
 Route::get('panel-evidencias','UserController@evidencias_sujeto')->name('evidencia');
