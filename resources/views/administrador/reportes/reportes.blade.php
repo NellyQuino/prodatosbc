@@ -6,7 +6,7 @@
         <label style="color: #848483 ;font-size:250%;font-family:inter;" for="">Sujetos Obligados</label>
     </div>
     <div class="text-right col-sm-2">
-        <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="tooltip" title="Subir marca de agua" style="background: #059B97;"><i class="fa fa-file-image-o"></i>
+        <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="tooltip" title="Subir marca de agua" data-bs-target="#modal-marcas-agua" style="background: #059B97;"><i class="fa fa-file-image-o"></i>
             Marcas de agua
         </button>
     </div>
@@ -100,4 +100,5 @@
         </nav>
     </div>
 </div>
+@include('administrador.reportes.marcas_de_agua')
 @endsection
