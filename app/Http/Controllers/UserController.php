@@ -18,10 +18,13 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Validation\Rule;
 //PDF'S
-use PDF;
+// use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf; // Descargado composer require dompdf/dompdf
 use Dompdf\Options;
-
+// $options = $dompdf->getOptions(); 
+//         $options->set(array('isRemoteEnabled' => true));
+//         $dompdf->setOptions($options);
 class UserController extends Controller
 {
     /**
@@ -493,6 +496,7 @@ class UserController extends Controller
 
     public function user_pdf($id)
     {
+        
         $user = User::where('id', $id)->first();
         // $compromiso = Compromiso::where('user_id', $id)->first();
         $compromisos = Compromiso::where('user_id', $id)->get(); //si falla poner paginate();

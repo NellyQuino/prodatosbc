@@ -9,9 +9,21 @@
   </head>
   <body>
     <header>
-      <h1>Reporte de {{$user->username}}</h1>
+    <h1>Reporte de {{$user->username}}</h1>
     </header>
+    <br>
     <footer></footer>
+    
+    <!-- <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}"> -->
+    <!-- <table style="width=100%">
+      <tbody>
+        <tr>
+          <td><h1>Reporte de {{$user->username}}</h1></td>
+          <td><img src="{{ public_path('Logo3.png') }}" style="width: 400px; height: 200px"></td>
+        </tr>
+      </tbody>
+    </table> -->
+    
     <table>
       <!--<tr>
         <td>Nombre:</td>
