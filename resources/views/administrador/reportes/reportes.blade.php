@@ -6,6 +6,11 @@
         <label style="color: #848483 ;font-size:250%;font-family:inter;" for="">Sujetos Obligados</label>
     </div>
     <div class="text-right col-sm-2">
+        <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="tooltip" title="generar pdf"  style="background: #059B97;"><i class="fa fa-file-image-o"></i>
+            GENERAR PDF
+        </button>
+    </div>
+    <div class="text-right col-sm-2">
         <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="tooltip" title="Subir marca de agua" data-bs-target="#modal-marcas-agua" style="background: #059B97;"><i class="fa fa-file-image-o"></i>
             Marcas de agua
         </button>
@@ -43,7 +48,6 @@
             </button>
         </div>
 
-
         @endif
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
@@ -69,8 +73,8 @@
 
                     @forelse ($users as $user)
                     <tr>
-                      <td style="width:5%;" class="align-top">
-                        <input type="checkbox" id="" name="" value="">
+                      <td style="width:5%;" class="align-top"><!--cambiar esto para pasarlo-->
+                        <input type="checkbox" class="check" id="" name="" value="" data-toggle="tooltip" title="">
                       </td>
                         <td style="width:5%;" class="align-top">
                             <p>{{$user->number_user}}</p>
@@ -100,5 +104,6 @@
         </nav>
     </div>
 </div>
+<script src="{{ asset('js/checkbox.js') }}"></script>
 @include('administrador.reportes.marcas_de_agua')
 @endsection

@@ -495,7 +495,7 @@ class UserController extends Controller
     {
         $user = User::where('id', $id)->first();
         // $compromiso = Compromiso::where('user_id', $id)->first();
-        $compromisos = Compromiso::where('user_id', $id)->paginate();
+        $compromisos = Compromiso::where('user_id', $id)->get(); //si falla poner paginate();
 
         $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'compromisos'=>$compromisos]);
         // $pdf->loadHTML('<h1>Test</h1>');

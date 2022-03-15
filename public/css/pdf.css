@@ -1,24 +1,28 @@
-@page{
+@page {
     margin: 0cm 0cm;
 }
 
-body{
+body {
     margin: 2cm 2.5cm 2cm 2.5cm;
 }
 
-h1{
-    color: #059b97;
+h1 {
+    color: #bd3284;
     margin: 0;
+    text-align: left;
+    margin-top: 6%;
+    margin-left: 10%;
 }
 
-td{
-    color: #bd3284;
+td {
+    color: black;
 }
-#titulo{
+
+#titulo {
     font-size: 20px;
 }
 
-#subtitulo{
+#subtitulo {
     font-size: 18px;
 }
 
@@ -27,9 +31,9 @@ header{
     top: 0cm;
     left: 0cm;
     right: 0cm;
-    height: 1cm;
+    height: 1cm; 
     background-color: #059b97;
-}
+} 
 
 footer{
     position: fixed;
@@ -39,4 +43,3 @@ footer{
     height: 2cm;
     background-color: #059b97;
 }
-
