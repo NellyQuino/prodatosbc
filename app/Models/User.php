@@ -60,5 +60,9 @@ class User extends Authenticatable
     public function compromiso(){
         return $this->hasMany(Compromiso::class, "user_id");
     }
-    
+
+    public function logo(){
+        return $this->hasMany(Compromiso::class, "user_id");
+    }
+
 }

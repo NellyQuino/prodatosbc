@@ -17,10 +17,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
     <meta name="theme-color" content="#7952b3">
-
-
 
     <style>
         .bd-placeholder-img {
@@ -107,6 +104,9 @@
                     </a>
                     <a href="{{ route('ejes.index') }}">
                         <span><i class="fas fa-list"></i>Panel</span>
+                    </a>
+                    <a href="{{ route('reportes.index') }}">
+                        <span><i class="fa fa-file-text-o"></i>Reportes</span>
                     </a>
                 </div>
             </nav>
