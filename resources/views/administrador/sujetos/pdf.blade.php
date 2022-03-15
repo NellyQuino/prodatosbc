@@ -7,11 +7,20 @@
     <link href="css/pdf.css" rel="stylesheet" type="text/css">
     
   </head>
+  
   <body>
     <header>
-    <h1>Reporte de {{$user->username}}</h1>
+
+      <div class="container">
+      
+      <img src="{{ storage_path('/app/public/logos/1647372823-new.jpg') }}" style="width: 300px; height: 150px">
+  
+      <h1>Reporte de {{$user->username}}</h1>
+
+      </div>
+
     </header>
-    <br>
+    
     <footer></footer>
     
     <!-- <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}"> -->
@@ -25,10 +34,10 @@
     </table> -->
     
     <table>
-      <!--<tr>
+      <!-- <tr>
         <td>Nombre:</td>
         <td>{{$user->username}}</td>
-      </tr>-->
+      </tr> -->
       @foreach ($compromisos as $compromiso)
         <tr>
           <td id="titulo">Compromisos: </td>
@@ -43,7 +52,7 @@
           <td id="subtitulo">{{$compromiso->detail}}</td>
           
         </tr>   
-        @if($loop->iteration % 10 == 0)
+        @if($loop->iteration % 8 == 0)
         <p style="page-break-before: always;"></p>
         @endif
       @endforeach
