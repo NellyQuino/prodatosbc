@@ -88,9 +88,9 @@
                 </div>
                 <div class="sidebar-content mt-3">
                     <a href="{{ route('compromiso.index') }}">
-                        <span><i class="far fa-file-alt"></i>Compromisos</span>
+                        <span><i class="far fa-file-alt"></i>R Compromisos</span>
                     </a>
-                    <a href="{{ route('evidencias') }}"><span><i class="fas fa-file-medical"></i>Seguimiento</span></a>
+                    <a href="{{ route('evidencias') }}"><span><i class="fas fa-file-medical"></i>R Evidencias</span></a>
                     
                 </div>
             </nav>

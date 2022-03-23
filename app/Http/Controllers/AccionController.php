@@ -47,7 +47,7 @@ class AccionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255', 'unique:accions'],
+            'name' => ['required', 'string', 'unique:accions'], //'max:255',
             'estrategia_id' => ['required'],
         ],[ 
              'estrategia_id.required' => 'El campo línea estratégica es obligatorio',
@@ -96,7 +96,7 @@ class AccionController extends Controller
     public function update(Request $request, Accion $accion)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string'], //, 'max:255'
             'estrategia_id' => ['required'],
         ],[ 
              'estrategia_id.required' => 'El campo línea estratégica es obligatorio'
