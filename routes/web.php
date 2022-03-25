@@ -74,17 +74,17 @@ Route::get('reportes-pdf/{user}', 'UserController@user_pdf')->name('sujeto.segui
 Route::post('reportes-pdf/marcas-de-agua', 'ReportsController@store')->name('reportes.marcas.store');
 
 //-------------------------->SUJETO<----------------------------------}
-Route::get('panel-evidencias','UserController@evidencias_sujeto')->name('evidencia');
-Route::post('panel-evidencias','UserController@evidencias_sujeto')->name('evidencias');
-Route::post('panel-evidencias/{eje}','UserController@evidencias_sujeto_eje')->name('evidencias_eje');
-Route::put('panel-evidencias/{user}/{eje}/{id}','UserController@cargar_evidencia')->name('cargar_evidencia');
-Route::post('/subir-evidencia/{user}/{eje}/{id}','UserController@pantalla_evidencia')->name('pantalla_evidencia');
-Route::delete('panel-evidencias/{user}/{eje}/{id}','UserController@eliminar_evidencia')->name('evidencia.eliminar');
+Route::get('panel-evidencias','UserController@evidencias_sujeto')->name('evidencia')->middleware('esSujeto');
+Route::post('panel-evidencias','UserController@evidencias_sujeto')->name('evidencias')->middleware('esSujeto');
+Route::post('panel-evidencias/{eje}','UserController@evidencias_sujeto_eje')->name('evidencias_eje')->middleware('esSujeto');
+Route::put('panel-evidencias/{user}/{eje}/{id}','UserController@cargar_evidencia')->name('cargar_evidencia')->middleware('esSujeto');
+Route::post('/subir-evidencia/{user}/{eje}/{id}','UserController@pantalla_evidencia')->name('pantalla_evidencia')->middleware('esSujeto');
+Route::delete('panel-evidencias/{user}/{eje}/{id}','UserController@eliminar_evidencia')->name('evidencia.eliminar')->middleware('esSujeto');
 //---------------------->COMPROMISOS,-------------------------------
 //Route::get('/home','UserController@index')->middleware('auth');
-Route::get('/compromisos', 'CompromisoController@index')->name('compromiso.index');
-Route::get('/compromisos/nuevo_compromiso', 'CompromisoController@create')->name('compromiso.create');
-Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name('compromiso.store');
-Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update');
-Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy');
+Route::get('/compromisos', 'CompromisoController@index')->name('compromiso.index')->middleware('esSujeto');
+Route::get('/compromisos/nuevo_compromiso', 'CompromisoController@create')->name('compromiso.create')->middleware('esSujeto');
+Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name('compromiso.store')->middleware('esSujeto');
+Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update')->middleware('esSujeto');
+Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy')->middleware('esSujeto');
 //---------------------->EVIDENCIAS-------------------------------
