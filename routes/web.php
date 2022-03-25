@@ -18,9 +18,7 @@ Use App\Models\Eje;
 
 
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+Route::get('/')->middleware('loginCheck');
 
 
 Route::get('/index', function () {

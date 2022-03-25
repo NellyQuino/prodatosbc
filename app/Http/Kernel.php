@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'EsAdmin' => \App\Http\Middleware\EsAdmin::class,
         'esSujeto' => \App\Http\Middleware\esSujeto::class,
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
+        'loginCheck' => \App\Http\Middleware\loginCheck::class,    
     ];
 }
