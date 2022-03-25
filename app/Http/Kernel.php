@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'role' => \App\Http\Middleware\RoleMiddleware::class,
         'EsAdmin' => \App\Http\Middleware\EsAdmin::class,
         'esSujeto' => \App\Http\Middleware\esSujeto::class,
+        'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
     ];
 }

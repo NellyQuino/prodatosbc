@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+Use App\Models\Eje;
 
 
 /*
@@ -30,6 +30,10 @@ Route::get('/index', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::group(['middleware' => 'prevent-back-history'],function(){
+
+
+
 
 Auth::routes();
 //-------------------------->ADMINISTRADOR<----------------------------------
@@ -47,7 +51,7 @@ Route::post('/ejes/nuevo_eje','EjeController@store')->name('eje.store');
 Route::put('/ejes/editar_eje/{eje}','EjeController@update')->name('eje.update');
 Route::delete('/ejes/eliminar_eje/{eje_id}','EjeController@destroy')->name('eje.destroy');
 //-------------------------->ADMINISTRADOR->ESTRATEGIAS<----------------------------------
-Use App\Models\Eje;
+
 Route::get('/estrategias', 'EstrategiaController@index')->name('estrategias.index');
 Route::get('/estrategias/nueva_estrategia', 'EstrategiaController@create')->name('estrategia.create');
 Route::post('/estrategias/nueva_estrategia','EstrategiaController@store')->name('estrategia.store');
@@ -88,3 +92,4 @@ Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name(
 Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update')->middleware('esSujeto');
 Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy')->middleware('esSujeto');
 //---------------------->EVIDENCIAS-------------------------------
+}); //middleware PreventBackHistory
