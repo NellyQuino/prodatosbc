@@ -30,9 +30,6 @@ Route::get('/index', function () {
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
 
-
-
-
 Auth::routes();
 //-------------------------->ADMINISTRADOR<----------------------------------
 
