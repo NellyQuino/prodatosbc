@@ -22,7 +22,7 @@ use Illuminate\Validation\Rule;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf; // Descargado composer require dompdf/dompdf
 use Dompdf\Options;
-// $options = $dompdf->getOptions(); 
+// $options = $dompdf->getOptions();
 //         $options->set(array('isRemoteEnabled' => true));
 //         $dompdf->setOptions($options);
 class UserController extends Controller
@@ -318,35 +318,47 @@ class UserController extends Controller
         $plantilla = "Evidencias Sujeto";
         return view('sujeto.EvidenciasSujeto', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'acciones' => NULL, 'archivos' => NULL]);
     }
+    // public function evidencias_sujeto_eje(Eje $eje){
+    //     $ejes = Eje::all();
+    //     $user = Auth::user()->id;
+    //     $acciones_1 = DB::select('SELECT e5.id as Id2, e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+    //     (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user, 'EjId' => $eje->id]);
+    //
+    //     $acciones = array();
+    //     $archivos = array();
+    //
+    //     foreach($acciones_1 as $prueba) {
+    //         array_push($acciones,array("Id2" => $prueba->Id2, "Id" => $prueba->id, "Nombre" => $prueba->name, "Plan_Accion" => $prueba->action_plan, "Fecha_Entrega" => $prueba->date_implementation, "Estado" => $prueba->state));
+    //     }
+    //     foreach($acciones_1 as $accion) {
+    //         $archivos_1 = DB::select('SELECT e5.id as Id2, e3.id, e5.archive, e5.date_implementation, e5.comment, e5.detail, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+    //         (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id && :AcId = e3.id)', ['SujId' => $user, 'EjId' => $eje->id,'AcId' => $accion->id]);
+    //
+    //
+    //         foreach($archivos_1 as $prueba2) {
+    //             //dd((string)$prueba2->Id2, (string)$prueba2->id, (string)$prueba2->archive, (string)$prueba2->date_implementation);
+    //             array_push($archivos, array('Id2' => (string)$prueba2->Id2, 'Id' => (string)$prueba2->id, 'Archivo' => (string)$prueba2->archive, 'Fecha' => (string)$prueba2->date_implementation,'Comentario' => (string)$prueba2->comment, 'Detalle' => (string)$prueba2->detail, 'Estado' => (string)$prueba2->state));
+    //         }
+    //     }
+    //
+    //
+    //     //dd($acciones, $archivos);
+    //     $plantilla = "Evidencias Sujeto";
+    //     return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'acciones' => $acciones, 'archivos' => $archivos]);
+    // }
+
     public function evidencias_sujeto_eje(Eje $eje){
+        // $user = User::where('id', $id)->first();
+        $user = Auth::user()->id;
         $ejes = Eje::all();
-          $user = Auth::user()->id;
-        $acciones_1 = DB::select('SELECT e5.id as Id2, e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
-        (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user, 'EjId' => $eje->id]);
-
-        $acciones = array();
-        $archivos = array();
-
-        foreach($acciones_1 as $prueba) {
-            array_push($acciones,array("Id2" => $prueba->Id2, "Id" => $prueba->id, "Nombre" => $prueba->name, "Plan_Accion" => $prueba->action_plan, "Fecha_Entrega" => $prueba->date_implementation, "Estado" => $prueba->state));
-        }
-        foreach($acciones_1 as $accion) {
-            $archivos_1 = DB::select('SELECT e5.id as Id2, e3.id, e5.archive, e5.date_implementation, e5.comment, e5.detail, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
-            (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id && :AcId = e3.id)', ['SujId' => $user, 'EjId' => $eje->id,'AcId' => $accion->id]);
-
-
-            foreach($archivos_1 as $prueba2) {
-                //dd((string)$prueba2->Id2, (string)$prueba2->id, (string)$prueba2->archive, (string)$prueba2->date_implementation);
-                array_push($archivos, array('Id2' => (string)$prueba2->Id2, 'Id' => (string)$prueba2->id, 'Archivo' => (string)$prueba2->archive, 'Fecha' => (string)$prueba2->date_implementation,'Comentario' => (string)$prueba2->comment, 'Detalle' => (string)$prueba2->detail, 'Estado' => (string)$prueba2->state));
-            }
-        }
-
-
-        //dd($acciones, $archivos);
+        $estrategias = Estrategia::where('eje_id', $eje)->get();
+        $acciones = Accion::all();
+        // $compromisos = compromiso::all();
+        $compromisos = Compromiso::where('user_id', $user)->get();
         $plantilla = "Evidencias Sujeto";
-        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'acciones' => $acciones, 'archivos' => $archivos]);
-    }
 
+        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'eje' => $eje, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
+    }
 
     public function pantalla_evidencia(User $user, Eje $eje, $id){
         //dd($user, $eje, $id);
@@ -496,7 +508,7 @@ class UserController extends Controller
 
     public function user_pdf($id)
     {
-        
+
         $user = User::where('id', $id)->first();
         // $compromiso = Compromiso::where('user_id', $id)->first();
         $compromisos = Compromiso::where('user_id', $id)->get(); //si falla poner paginate();
