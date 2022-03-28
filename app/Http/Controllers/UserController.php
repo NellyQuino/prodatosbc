@@ -351,9 +351,8 @@ class UserController extends Controller
         // $user = User::where('id', $id)->first();
         $user = Auth::user()->id;
         $ejes = Eje::all();
-        $estrategias = Estrategia::where('eje_id', $eje)->get();
+        $estrategias = Estrategia::where('eje_id', $eje->id)->get();
         $acciones = Accion::all();
-        // $compromisos = compromiso::all();
         $compromisos = Compromiso::where('user_id', $user)->get();
         $plantilla = "Evidencias Sujeto";
 
