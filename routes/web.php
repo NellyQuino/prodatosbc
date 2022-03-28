@@ -28,7 +28,7 @@ Route::get('/index', function () {
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => 'prevent-back-history'],function(){
+// Route::group(['middleware' => 'prevent-back-history'],function(){
 
 Auth::routes();
 //-------------------------->ADMINISTRADOR<----------------------------------
@@ -87,4 +87,4 @@ Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name(
 Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update')->middleware('esSujeto');
 Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy')->middleware('esSujeto');
 //---------------------->EVIDENCIAS-------------------------------
-}); //middleware PreventBackHistory
+// }); //middleware PreventBackHistory
