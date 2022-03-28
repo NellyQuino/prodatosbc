@@ -49,6 +49,7 @@
             </table>
         </div>
         <div style = "display: flex; justify-content: center; align-items: center;">
+
             @if ((string)$compromiso->archive == "")
                 <form action="{{ route('pantalla_evidencia', ['user' => $usuario, 'eje' => $eje, 'id' => $compromiso->id]) }}" method="POST">
                     @csrf
