@@ -61,7 +61,7 @@
                     </td>
                     <td>
                         @if ($compromiso->archive != NULL)
-                        <form action="" method="POST">
+                        <form action="{{ route('sujeto.seguimiento.eje.accion', ['user' => $usuario, 'eje' => $supereje, 'compromiso' => $compromiso]) }}" method="POST">
                             @csrf
                             <input type="image" src="{{url('images/Visible.png')}}" alt="">
                         </form>

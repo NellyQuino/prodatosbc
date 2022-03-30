@@ -280,49 +280,101 @@ class UserController extends Controller
         $ejes = Eje::All();
         $estrategias = Estrategia::where('eje_id', $eje->id)->get();
         $acciones = Accion::all();
-        $compromisos = Compromiso::where('user_id', $usuario)->get();
         $plantilla = "Seguimiento Sujeto";
+
+        if ($request->input('campox') == "Todo") {
+            $compromisos = Compromiso::where('user_id', $usuario)->get();
+        }
+        else if ($request->input('campox') == "Sin Revision") {
+            $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', null)->get();
+        }
+        else if ($request->input('campox') == "Incompleto") {
+            $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', 'Incompleto')->get();
+        }
+        else if ($request->input('campox') == "Aceptado") {
+            $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', 'Aceptado')->get();
+        }
 
         return view('administrador.sujetos.SeguimientoSujetoEje', ['usuario' => $user, 'user' => $usuario, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
 
     }
-    public function seguimiento_eje_accion(Request $request, User $user, Eje $eje, Accion $accion) {
-        $ejes = Eje::all();
-        $txt1 = "";
+    // public function seguimiento_eje_accion(Request $request, User $user, Eje $eje, Accion $accion) {
+    //     $ejes = Eje::all();
+    //     $txt1 = "";
+    //     $pesox = 0;
+    //     $pesof = 0;
+    //     $subfijo = "bytes";
+    //     //
+    //     $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+    //     (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user->id, 'EjId' => $eje->id]);
+    //
+    //
+    //     $acciones = array();
+    //     $archivos = array();
+    //
+    //     foreach($acciones_1 as $prueba) {
+    //         array_push($acciones, array('Id' => (int)$prueba->id, 'Nombre' => (string)$prueba->name, 'Plan_Accion' => (string)$prueba->action_plan, 'Fecha_Implementacion' => (string)$prueba->date_implementation, 'Estado' => (boolean)$prueba->state));
+    //     }
+    //
+    //     $archivos_1 = DB::select('SELECT  e5.archive, e5.date_implementation, e5.id, e5.detail, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
+    //     (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.Id && :EjId = e1.Id && :AcId = e3.Id)', ['SujId' => $user->id, 'EjId' => $eje->id, 'AcId' => $accion->id]);
+    //
+    //     foreach($archivos_1 as $prueba2) { // Añadir Detalle en archivos
+    //         if ($prueba2->archive != NULL) {
+    //             $pesox = Storage::disk('compromisos')->size($prueba2->archive);
+    //             if ($pesox > 0) {
+    //                 if ($pesox < 1024) { $subfijo = "bytes"; }
+    //                 else if ($pesox < 1024*1024) { $subfijo = "KB"; $pesof = $pesox/1024; }
+    //                 else if ($pesox < 1024*1024*1024) { $subfijo = "MB"; $pesof = $pesox/1024/1024; }
+    //                 else if ($pesox < 1024*1024*1024*1024) { $subfijo = "GB"; $pesof = $pesox/1024/1024/1024; }
+    //             }
+    //             array_push($archivos, array('Archivo' => (string)$prueba2->archive, 'Fecha' => (string)$prueba2->date_implementation, 'Registro' => (string)$prueba2->id, 'Detalle' => (string)$prueba2->detail, 'Estado' => (string)$prueba2->state, 'Peso' => (string)(round($pesof,2) . " " . $subfijo)));
+    //         }
+    //     }
+    //
+    //     $plantilla = "Seguimiento Sujeto";
+    //
+    //     return view('administrador.sujetos.SeguimientoSujetoEjeAccion', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'acciones' => $acciones, 'archivos' => $archivos]);
+    // }
+
+    public function seguimiento_eje_accion(Request $request,User $user, Eje $eje, Compromiso $compromiso) {
+        $peso = "";
         $pesox = 0;
         $pesof = 0;
         $subfijo = "bytes";
-        //
-        $acciones_1 = DB::select('SELECT e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
-        (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user->id, 'EjId' => $eje->id]);
 
-
-        $acciones = array();
-        $archivos = array();
-
-        foreach($acciones_1 as $prueba) {
-            array_push($acciones, array('Id' => (int)$prueba->id, 'Nombre' => (string)$prueba->name, 'Plan_Accion' => (string)$prueba->action_plan, 'Fecha_Implementacion' => (string)$prueba->date_implementation, 'Estado' => (boolean)$prueba->state));
+        if ($compromiso->archive != NULL) {
+            $pesox = Storage::disk('compromisos')->size($compromiso->archive);
+            if ($pesox > 0) {
+                if ($pesox < 1024) { $subfijo = "bytes"; }
+                else if ($pesox < 1024*1024) { $subfijo = "KB"; $pesof = $pesox/1024; }
+                else if ($pesox < 1024*1024*1024) { $subfijo = "MB"; $pesof = $pesox/1024/1024; }
+                else if ($pesox < 1024*1024*1024*1024) { $subfijo = "GB"; $pesof = $pesox/1024/1024/1024; }
+            }
+          $peso = (string)(round($pesof,2) . " " . $subfijo);
         }
 
-        $archivos_1 = DB::select('SELECT  e5.archive, e5.date_implementation, e5.id, e5.detail, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
-        (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.Id && :EjId = e1.Id && :AcId = e3.Id)', ['SujId' => $user->id, 'EjId' => $eje->id, 'AcId' => $accion->id]);
-
-        foreach($archivos_1 as $prueba2) { // Añadir Detalle en archivos
-            if ($prueba2->archive != NULL) {
-                $pesox = Storage::disk('compromisos')->size($prueba2->archive);
-                if ($pesox > 0) {
-                    if ($pesox < 1024) { $subfijo = "bytes"; }
-                    else if ($pesox < 1024*1024) { $subfijo = "KB"; $pesof = $pesox/1024; }
-                    else if ($pesox < 1024*1024*1024) { $subfijo = "MB"; $pesof = $pesox/1024/1024; }
-                    else if ($pesox < 1024*1024*1024*1024) { $subfijo = "GB"; $pesof = $pesox/1024/1024/1024; }
-                }
-                array_push($archivos, array('Archivo' => (string)$prueba2->archive, 'Fecha' => (string)$prueba2->date_implementation, 'Registro' => (string)$prueba2->id, 'Detalle' => (string)$prueba2->detail, 'Estado' => (string)$prueba2->state, 'Peso' => (string)(round($pesof,2) . " " . $subfijo)));
+        //logica para guardar el estado y detalle de un compromiso
+        if ($request->input('datapack') == "normal") {
+        }
+        else if ($request->input('datapack') == "regreso") {
+            //$compromisos =  Compromiso::where('id', $request->input('analisis_accion'))->get(); Separa el objeto de los nuevos campos, no puede haber save ni update
+            $compromiso = Compromiso::find($request->input('analisis_accion')); // Acepta cambios en Save
+            if ($request->input('Campo') == "Incompleto"){
+                $compromiso->detail = "Incompleto";
             }
+            else {
+                $compromiso->state = 1;
+                $compromiso->detail = "Aceptado";
+            }
+            $compromiso->comment = $request->input('Text1');
+            //dd($compromisos);
+            $compromiso->save();
         }
 
         $plantilla = "Seguimiento Sujeto";
 
-        return view('administrador.sujetos.SeguimientoSujetoEjeAccion', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'acciones' => $acciones, 'archivos' => $archivos]);
+        return view('administrador.sujetos.SeguimientoSujetoEjeAccion', ['usuario' => $user, 'supereje' => $eje, 'compromiso' => $compromiso, 'plantilla' => $plantilla, 'peso' => $peso]);
     }
 
     public function evidencias_sujeto(){

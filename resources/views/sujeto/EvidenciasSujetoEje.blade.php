@@ -35,9 +35,11 @@
                     <td style="width: 5%">
                         @if ($compromiso->detail == NULL && $compromiso->state == 0)
                             <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
-                        @elseif ($compromiso->detail == "Incompleto" && $compromiso->state == 0)
+                        @elseif ($compromiso->detail == NULL && $compromiso->state == 1)
+                            <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
+                        @elseif ($compromiso->detail == "Incompleto" && $compromiso->state == 1)
                             <p><img src="{{url('images/Icon_estado2.png')}}" alt=""></p>
-                        @elseif ($compromiso->detail == "Fuera de Tiempo" && $compromiso->state == 0)
+                        @elseif ($compromiso->detail == "Fuera de Tiempo" && $compromiso->state == 1)
                             <p><img src="{{url('images/Icon_estado3.png')}}" alt=""></p>
                         @elseif ($compromiso->detail == "Aceptado" && $compromiso->state == '1')
                             <p><img src="{{url('images/Icon_estado1.png')}}" alt=""></p>

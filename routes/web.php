@@ -63,7 +63,7 @@ Route::delete('/acciones/eliminar_accion/{accion_id}','AccionController@destroy'
 //-------------------------->ADMINISTRADOR->SUJETO<----------------------------------
 Route::post('panel-seguimiento/{user}', 'UserController@seguimiento')->name('sujeto.seguimiento');
 Route::post('panel-seguimiento/{user}/{eje}',  'UserController@seguimiento_eje')->name('sujeto.seguimiento.eje');
-Route::post('panel-seguimiento/{user}/{eje}/{accion}',  'UserController@seguimiento_eje_accion')->name('sujeto.seguimiento.eje.accion');
+Route::post('panel-seguimiento/{user}/{eje}/{compromiso}',  'UserController@seguimiento_eje_accion')->name('sujeto.seguimiento.eje.accion');
 Route::post('descargar/{id}','UserController@descargar_archivo')->name('descargar_archivo');
 
 //------------------------>ADMINISTRADOR->REPORTES<----------------------------------------------------
