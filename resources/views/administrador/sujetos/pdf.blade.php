@@ -126,6 +126,10 @@ th{
 
     @foreach ($compromisos as $compromiso)
     <table style="width:100%">
+    <tr>
+    <td colspan="3"> <b>Servidor público que reporta:</b> {{$compromiso->responsable}}</td>
+    
+</tr>
   <tr>
     <th>Eje</th>
     <th>Estrategia</th>
