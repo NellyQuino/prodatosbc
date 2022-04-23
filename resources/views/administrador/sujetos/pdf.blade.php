@@ -152,7 +152,13 @@ th{
 </tr>
 <tr>
     <td colspan="2"></td>
-    <td><b>Estatus:</b> {{$compromiso->detail}}</td>
+    <td><b>Estatus:</b>
+    @if ($compromiso->detail == NULL)
+      Sin revisar
+    @else
+      {{$compromiso->detail}}
+    @endif
+    </td>
 </tr>
     </table>
     <br>
