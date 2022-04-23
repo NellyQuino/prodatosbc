@@ -48,8 +48,10 @@ th{
         </tr>
       </tbody>
     </table> -->
-    
-    <h3 style="text-align: right">Fecha del reporte: 20/04/2022 </h3>
+    @php 
+        $date = date('d-m-Y');
+    @endphp 
+    <h3 style="text-align: right">Fecha del reporte: {{$date}}</h3>
     <table style="width:100%">
   <tr>
     <th style="width:75%">Nombre del sujeto obligado:	</th>
@@ -95,13 +97,26 @@ th{
     </table> -->
     
     <table style="width:100%">
-    @foreach ($compromisos as $compromiso)
   <tr>
     <th colspan="2">Eje</th>
     <th colspan="2">Estrategia</th>
-    <th colspan="2">Línea de acción {{$compromiso->accion_id}}</th>
-</tr>
-@endforeach
+    <th colspan="2">Línea de acción</th>
+  </tr>
+  @foreach ($compromisos as $compromiso)
+  @foreach ($acciones as $accion)
+  @foreach ($estrategias as $estrategia)
+  @foreach ($ejes as $eje)
+  @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->eje_id == $eje->id)
+  <tr>
+    <td colspan="2">{{$eje->name}}</td>
+    <td colspan="2">{{$estrategia->name}}</td>
+    <td colspan="2">{{$accion->name}}</td>
+  </tr>
+  @endif
+  @endforeach
+  @endforeach
+  @endforeach
+  @endforeach
 <!-- <tr>
 <td colspan="2">Eje</td>
     <td colspan="2">Estrategia</td>
@@ -125,6 +140,10 @@ th{
   <br>
 
     @foreach ($compromisos as $compromiso)
+    @foreach ($acciones as $accion)
+    @foreach ($estrategias as $estrategia)
+    @foreach ($ejes as $eje)
+    @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->eje_id == $eje->id)
     <table style="width:100%">
     <tr>
     <td colspan="3"> <b>Servidor público que reporta:</b> {{$compromiso->responsable}}</td>
@@ -136,9 +155,9 @@ th{
     <th>Línea de acción</th>
 </tr>
 <tr>
-    <td>Jill</td>
-    <td>Jill</td>
-    <td>Jill</td>
+    <td>{{$eje->name}}</td>
+    <td>{{$estrategia->name}}</td>
+    <td>{{$accion->name}}</td>
 </tr>
 <tr>
     <th colspan="3">Descripción de la actividad </th>
@@ -152,7 +171,7 @@ th{
 </tr>
 <tr>
     <th colspan="2">Fecha de entrega de la evidencia:</th>
-    <td>21/04/2022</td>
+    <td>{{$compromiso->date_delivery}}</td>
 </tr>
 <tr>
     <td colspan="2"></td>
@@ -166,6 +185,10 @@ th{
 </tr>
     </table>
     <br>
+    @endif
+    @endforeach
+    @endforeach
+    @endforeach
     @endforeach
   </body>
 </html>

@@ -475,7 +475,7 @@ class UserController extends Controller
             //$compromiso->Archivo = $request->file('Buscador')->store('','compromisos'); // Nombre_Aleatorio de archivo
             $nombre_archivo = time().'-'.$request->file('Buscador')->getClientOriginalName();
             $compromiso->archive = $request->file('Buscador')->storeAs('',$nombre_archivo, 'compromisos');
-            //$comprimiso->date_implementation = "$date";
+            $compromiso->date_delivery = date('Y-m-d H:i:s');
             //$compromiso->Archivo = $request->file('Buscador')->store('public');
             $compromiso->state = 1;
             $compromiso->detail = NULL;
@@ -539,10 +539,15 @@ class UserController extends Controller
     {
 
         $user = User::where('id', $id)->first();
+
+        $ejes = Eje::all();
+        $estrategias = Estrategia::all();
+        $acciones = Accion::all();
+        
         // $compromiso = Compromiso::where('user_id', $id)->first();
         $compromisos = Compromiso::where('user_id', $id)->get(); //si falla poner paginate();
 
-        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'compromisos'=>$compromisos]);
+        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'compromisos'=>$compromisos, 'ejes'=>$ejes, 'estrategias'=>$estrategias, 'acciones'=>$acciones]);
         // $pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
         // return view('administrador.sujetos.pdf', compact('user','compromisos'));
