@@ -16,7 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background:#F3F3F3;">
+<body style="background:#F3F3F3;" onload="nobackbutton();">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 row justify-content-center">
@@ -60,7 +60,13 @@
     </div>
 
 
-
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+    <script type="text/javascript">
+        function nobackbutton(){
+            window.location.hash="no-back-button";
+            window.location.hash="Again-No-back-button" //chrome
+            window.onhashchange=function(){window.location.hash="no-back-button";}
+        }
+    </script>
 
 </body>
