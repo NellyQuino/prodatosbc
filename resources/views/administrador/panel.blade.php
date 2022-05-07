@@ -7,10 +7,14 @@
             font-weight: bold !important;
             text-decoration: none !important;
         }
+
+        a:hover{
+            color: #c64890 !important;
+        }
 </style>
 
 <div class="text-left col-sm-8">
-    <label style="color: #848483 ;font-size:250%;font-family:inter;" for="">Panel</label>
+    <label style="color: #848483 ;font-size:250%;font-family:inter;" for="">Alta EEA</label>
 </div>
 <div>
 

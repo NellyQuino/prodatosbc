@@ -35,14 +35,20 @@
         }
     </style>
     <style>
-        .active a {
-            color: #BD3284;
-            font-weight: bold;
-            text-decoration: none;
+        .active span{
+            background-color: #BD3284 !important;
+            font-weight: bold !important;
+            text-decoration: none !important;
         }
-    </style>
 
+        .nav-new {
+  display: block;
+  color: #0d6efd;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
 
+</style>
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{url('css/Estilos.css?v=').time()}}">
@@ -101,7 +107,32 @@
                     </ul>
                 </div>
                 <div class="sidebar-content mt-3">
-                    <a href="{{ route('user.index') }}">
+                    <ul class="navbar-nav" style="display: flex;">
+                        <li  class=" {{ setActive('user.index') }} " >
+                            
+                            <a href="{{ route('user.index') }}" class="nav-new">
+                                <span> <i class="fas fa-users"></i>Alta SO </span>
+                            </a>
+                            
+                        </li>
+                        <li  class=" {{ setActive('ejes.index') }} {{ setActive('estrategias.index') }}  {{ setActive('acciones.index') }}" >
+                            
+                            <a href="{{ route('ejes.index') }}" class="nav-new">
+                       <span> <i class="fas fa-list"></i>Alta EEA </span> 
+                    </a>
+                            
+                        
+                        </li>
+                        <li  class=" {{ setActive('reportes.index') }} " >
+                            
+                            <a href="{{ route('reportes.index') }}" class="nav-new"> 
+                        <span> <i class="fa fa-file-text-o"></i>Reportes </span>
+                    </a>
+                            
+                        
+                        </li>
+                    </ul>
+                    <!-- <a href="{{ route('user.index') }}">
                         <span><i class="fas fa-users"></i>Alta SO</span>
                     </a>
                     <a href="{{ route('ejes.index') }}">
@@ -109,7 +140,7 @@
                     </a>
                     <a href="{{ route('reportes.index') }}">
                         <span><i class="fa fa-file-text-o"></i>Reportes</span>
-                    </a>
+                    </a> -->
                 </div>
             </nav>
             <!--Fin Siderbar-->
