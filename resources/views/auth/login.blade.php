@@ -14,12 +14,12 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script>
+    <!-- <script>
 window.addEventListener('popstate', function(event) {
 	history.pushState(null, null, window.location.pathname);
 	history.pushState(null, null, window.location.pathname);
 	}, false);
-</script>
+</script> -->
 </head>
 
 <body style="background:#F3F3F3;">
@@ -65,8 +65,4 @@ window.addEventListener('popstate', function(event) {
         </div>
     </div>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
-    <!-- <script type="text/javascript">
-        // window.location.hash= window.history.length;
-        window.history.go(1);
-    </script> -->
 </body>
