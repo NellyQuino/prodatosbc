@@ -45,6 +45,9 @@ Route::get('/ejes', 'EjeController@index')->name('ejes.index')->middleware('EsAd
 Route::post('/ejes/nuevo_eje','EjeController@store')->name('eje.store')->middleware('EsAdmin');
 Route::put('/ejes/editar_eje/{eje}','EjeController@update')->name('eje.update')->middleware('EsAdmin');
 Route::delete('/ejes/eliminar_eje/{eje_id}','EjeController@destroy')->name('eje.destroy')->middleware('EsAdmin');
+//-------------------------->ADMINISTRADOR->PROBLEMATICAS<----------------------------------
+Route::get('/problematicas', 'ProblematicasController@index')->name('problematicas.index')->middleware('EsAdmin');
+
 //-------------------------->ADMINISTRADOR->ESTRATEGIAS<----------------------------------
 
 Route::get('/estrategias', 'EstrategiaController@index')->name('estrategias.index')->middleware('EsAdmin');

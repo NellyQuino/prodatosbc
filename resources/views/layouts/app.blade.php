@@ -19,20 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<script>
-        $(document).ready(function() {
-            $('body').hide();
-            if ($('#auth').val().length == 0)
-            {
-                $('#auth').val('yes');
-                $('body').show();
-            }
-            else
-            {
-                location.reload();
-            }
-        });
-</script>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
