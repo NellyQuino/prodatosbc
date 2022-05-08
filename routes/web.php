@@ -31,6 +31,7 @@ Route::get('/')->middleware('loginCheck');
 // Route::group(['middleware' => 'prevent-back-history'],function(){
 
 Auth::routes();
+Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 //-------------------------->ADMINISTRADOR<----------------------------------
 
 Route::get('/inicio','AdministradorController@index')->middleware('EsAdmin');
