@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="text-left col-md-5 mt-2">
-    <label style="color: #848483 ;font-size:200%;font-family:inter;" for="">Implementación</label>
+    <label style="color: #848483 ;font-size:200%;font-family:inter;" for="">R. Compromisos</label>
 </div>
 <div class="container-fluid">
     <div class="form-group">
