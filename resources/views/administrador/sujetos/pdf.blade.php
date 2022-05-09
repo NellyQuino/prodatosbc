@@ -54,10 +54,12 @@ th{
     <h3 style="text-align: right">Fecha del reporte: {{$date}}</h3>
     <table style="width:100%">
   <tr>
+    <th>No.	</th>
     <th style="width:75%">Nombre del sujeto obligado:	</th>
     <th>ID</th>
   </tr>
   <tr>
+    <td>1000</td>
     <td>{{$user->username}}</td>
     <td>{{$user->number_user}}</td>
   </tr>
@@ -65,7 +67,7 @@ th{
   <br> 
   <table style="width:100%">
   <tr>
-    <th style="width:60%">Servidor público que reporta:	</th>
+    <th style="width:65%">Nombre del oficial de protección de datos personales:	</th>
     <th>Correo electrónico: </th>
   </tr>
   <tr>
@@ -74,7 +76,7 @@ th{
   </tr>
     </table>
 
-    <p>Ejes, estrategias y líneas de acción que se reportan:</p>
+    <p>Resumen de compromisos adquiridos:</p>
     <!-- <table style="width:100%">
     @foreach ($compromisos as $compromiso)
         <tr>
@@ -98,9 +100,14 @@ th{
     
     <table style="width:100%">
   <tr>
-    <th colspan="2">Eje</th>
-    <th colspan="2">Estrategia</th>
-    <th colspan="2">Línea de acción</th>
+    <th>Ejes</th>
+    <td style="width:7%">Cant.</td>
+    <th>Problemáticas</th>
+    <td style="width:7%">Cant.</td>
+    <th>Estrategias</th>
+    <td style="width:7%">Cant.</td>
+    <th>Acciones</th>
+    <td style="width:7%">Cant.</td>
   </tr>
   @foreach ($compromisos as $compromiso)
   @foreach ($acciones as $accion)
@@ -128,16 +135,20 @@ th{
     <td colspan="2">Línea de acción</td>
 </tr> -->
   <tr>
-    <th style="width:20%">Total ejes:</th>
+    <th>Total</th>
     <td></td>
-    <th style="width:20%">Total estrategias:</th>
+    <th>Total</th>
     <td></td>
-    <th style="width:30%">Total líneas de acción:</th>
+    <th>Total</th>
+    <td></td>
+    <th>Total</th>
     <td></td>
   </tr>
     </table>
 
   <br>
+
+  <p>Desglose:</p>
 
     @foreach ($compromisos as $compromiso)
     @foreach ($acciones as $accion)
