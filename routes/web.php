@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LogoutController;
 Use App\Models\Eje;
 
 
@@ -21,9 +22,9 @@ Use App\Models\Eje;
 Route::get('/')->middleware('loginCheck');
 
 
-// Route::get('/index', function () {
-//     return view('layouts.index');
-// });
+Route::get('/index', function () {
+    return view('layouts.index');
+})->name('index');
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,7 +32,12 @@ Route::get('/')->middleware('loginCheck');
 // Route::group(['middleware' => 'prevent-back-history'],function(){
 
 Auth::routes();
-Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+Route::group(['middleware' => ['auth']], function() {
+    /**
+    * Logout Route
+    */
+    Route::POST('/logout', 'Auth\LogoutController@perform')->name('logout.perform');
+ });
 //-------------------------->ADMINISTRADOR<----------------------------------
 
 Route::get('/inicio','AdministradorController@index')->middleware('EsAdmin');
