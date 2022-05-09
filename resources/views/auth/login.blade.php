@@ -35,8 +35,8 @@ window.addEventListener('popstate', function(event) {
                             @csrf
                             <div class="input-group mt-4">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user mt-3"></i></span>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror input-lg" name="email" placeholder="Correo" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
+                                <input id="user" type="text" class="form-control @error('user') is-invalid @enderror input-lg" name="user" placeholder="Usuario" value="{{ old('user') }}" required autocomplete="user" autofocus>
+                                @error('user')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

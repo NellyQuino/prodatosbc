@@ -78,10 +78,13 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'number_user' => 'required|string|size:5|unique:users',
+            'user' => 'required|string|max:255|unique:users',
+            'name' => 'required|string|max:255',
         ],[
             'number_user.required' => 'El campo ID es obligatorio.',
             'number_user.unique' => 'Ya existe un registro con este ID.',
             'number_user.size' => 'El campo ID debe contener al menos 5 caracteres.',
+            'user.unique' => 'Ya existe un registro con este usuario.',
 
         ]);
         //Crear usuarios insersion en la BD
@@ -92,7 +95,11 @@ class UserController extends Controller
             'number_user' => $request->number_user,
             'slug' =>  Str::slug($request->username, "-"),
             'rol_id' => '2',
-            'state' => '1'
+            'state' => '1',
+            'user' => $request->user,
+            'name' => $request->name
+
+
 
             //Comando para incriptar las contrase;as bcrypt
         ]);
