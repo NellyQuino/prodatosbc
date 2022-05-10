@@ -62,21 +62,15 @@ class CompromisoController extends Controller
         $request->validate([
 
             'action_plan' => ['required', 'string'],
-            'responsable' => ['required', 'string', 'max:255'] ,
-            'position'=> ['required', 'string', 'max:255'] ,
             'user_id' =>['required'],
             'accion_id' =>['required'],
         ],[
-            'responsable.required' => 'El campo servidor público es obligatorio.',
-            'position.required' => 'El campo cargo es obligatorio.',
             'action_plan.required' => 'El campo descripción de la actividad es obligatorio.'
         ]);
 
         Compromiso::create([
 
             'action_plan' => $request->action_plan,
-            'responsable' =>$request->responsable,
-            'position' => $request->position,
             'user_id' =>$request->user_id,
             'state' => '1',
             'accion_id' =>$request->accion_id,
@@ -125,17 +119,11 @@ class CompromisoController extends Controller
         $request->validate([
 
             'action_plan' => ['required', 'string'],
-            'responsable' => ['required', 'string', 'max:255'] ,
-            'position'=> ['required', 'string', 'max:255'] ,
         ],[
-            'responsable.required' => 'El campo servidor público es obligatorio.',
-            'position.required' => 'El campo cargo es obligatorio.',
             'action_plan.required' => 'El campo descripción de la actividad es obligatorio.'
         ]);
         $compromiso->update([
             'action_plan' => request('action_plan'),
-            'responsable' =>request('responsable'),
-            'position' => request ('position'),
             'state' => '1',
  
          ]);
@@ -160,17 +148,11 @@ class CompromisoController extends Controller
         $request->validate([
 
             'action_plan' => ['required', 'string'],
-            'responsable' => ['required', 'string', 'max:255'] ,
-            'position'=> ['required', 'string', 'max:255'] ,
         ],[
-            'responsable.required' => 'El campo servidor público es obligatorio.',
-            'position.required' => 'El campo cargo es obligatorio.',
             'action_plan.required' => 'El campo descripción de la actividad es obligatorio.'
         ]);
         $compromiso->update([
             'action_plan' => request('action_plan'),
-            'responsable' =>request('responsable'),
-            'position' => request ('position'),
             'state' => '1',
  
          ]);

@@ -15,6 +15,7 @@ class CreateEjesTable extends Migration
     {
         Schema::create('ejes', function (Blueprint $table) {
             $table->id();
+            $table->string('number');
             $table->string('name');
             $table->text('description');
             $table->boolean('state')->nullable();

@@ -9,6 +9,7 @@ class Eje extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'number',
         'name',
         'description',
         'state',
