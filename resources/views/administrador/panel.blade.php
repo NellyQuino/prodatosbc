@@ -14,7 +14,7 @@
 </style>
 
 <div class="text-left col-sm-8">
-    <label style="color: #848483 ;font-size:250%;font-family:inter;" for="">Alta EEA</label>
+    <label style="color: #848483 ;font-size:250%;font-family:inter;" for="">Alta EPEA</label>
 </div>
 <div>
 

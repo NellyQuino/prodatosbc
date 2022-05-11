@@ -159,6 +159,8 @@ class UserController extends Controller
             'username' => request('username'),
             'email' => request('email'),
             'number_user' => request('number_user'),
+            'user' => request('user'),
+            'name' => request('name'),
 
          ]);
 

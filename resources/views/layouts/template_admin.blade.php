@@ -116,7 +116,7 @@
                         <li  class=" {{ setActive('ejes.index') }} {{ setActive('problematicas.index') }} {{ setActive('estrategias.index') }}  {{ setActive('acciones.index') }}" >
                             
                             <a href="{{ route('ejes.index') }}" class="nav-new">
-                       <span> <i class="fas fa-list"></i>Alta EEA </span> 
+                       <span> <i class="fas fa-list"></i>Alta EPEA </span> 
                     </a>
                             
                         
