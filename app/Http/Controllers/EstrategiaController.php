@@ -49,15 +49,18 @@ class EstrategiaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'number' => ['required', 'string', 'max:255',],
             'name' => ['required', 'string', 'max:255', 'unique:estrategias'],
             'description' => ['required', 'string', 'max:255'],
             'eje_id' => ['required'],
         ],[
+            'number.required'=> 'El campo numero de la estrategia es obligatorio.',
             'eje_id.required' => 'El campo eje es obligatorio',
-             'name.unique' => 'La línea estratégica ya existe'
+            'name.unique' => 'La línea estratégica ya existe'
         ]);
 
         Estrategia::create([
+            'number' => $request->number,
             'name' => $request->name,
             'description' => $request->description,
             'eje_id' => $request->eje_id,
@@ -103,13 +106,16 @@ class EstrategiaController extends Controller
     {
 
         $request->validate([
+            'number' => ['required', 'string', 'max:255',],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'eje_id' => ['required'],
         ],[
+            'number.required'=> 'El campo numero de la estrategia es obligatorio.',
             'eje_id.required' => 'El campo eje es obligatorio',
         ]);
         $estrategia->update([
+            'number' => request('number'),
             'name' => request('name'),
             'description' => request('description'),
             'eje_id' =>request('eje_id'),

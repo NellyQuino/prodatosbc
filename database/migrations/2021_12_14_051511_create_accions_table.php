@@ -15,9 +15,8 @@ class CreateAccionsTable extends Migration
     {
         Schema::create('accions', function (Blueprint $table) {
             $table->id();
-
             $table->bigInteger('estrategia_id')->unsigned();//Variable para la relacin con la tabla user
-
+            $table->string('number');
             $table->string('name', 1000);
             //$table->text('description');
             $table->boolean('state')->nullable();

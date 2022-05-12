@@ -9,6 +9,7 @@ class Estrategia extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'number',
         'name',
         'description',
         'eje_id',

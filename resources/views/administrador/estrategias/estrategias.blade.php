@@ -42,8 +42,8 @@
                 @endphp
                 @foreach($estrategias as $estrategia)
                 <tr>
-                    <td style="width:20%;" class="align-top"> {{ $estrategia-> eje -> name}}</td>
-                    <td style="width:40%;" class="align-top"> {{ $estrategia->description}}</td>
+                    <td style="width:20%;" class="align-top"> {{ $estrategia-> eje -> number}} {{ $estrategia-> eje -> name}}</td>
+                    <td style="width:40%;" class="align-top"> {{ $estrategia-> number}} {{ $estrategia->description}}</td>
                     <td style="width:30%;" class="align-top">{{ $estrategia->name }}</td>
                     <td style="width:5%;">
                         <a type="button" class="btn btn-primary" style="background: #059B97;"  href="{{ route('estrategia.edit', $estrategia->id) }}"> <i class="fas fa-edit"></i></a>
