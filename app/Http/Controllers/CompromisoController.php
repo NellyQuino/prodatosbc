@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Accion;
 use App\Models\Compromiso;
 use App\Models\Estrategia;
+use App\Models\Problematica;
 use App\Models\Eje;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Hash;
@@ -30,6 +31,7 @@ class CompromisoController extends Controller
        
         $user  = Auth::user()->id;
         $estrategias = Estrategia::all();
+        $problematicas = Problematica::all();
         $ejes = Eje::all();
         $acciones = Accion::all();
        // $data = User::where('slug', $user)->get();
@@ -37,7 +39,7 @@ class CompromisoController extends Controller
         $compromisos = Compromiso::where('user_id', Auth::user()->id)->orderBy('accion_id','asc')->paginate(8);
         //dd(User::all());
         //dd(Auth::user()->id, Compromiso::where('user_id', Auth::user()->id)->get());
-        return view('sujeto.compromisos', compact('compromisos', 'user','ejes', 'acciones', 'estrategias'));
+        return view('sujeto.compromisos', compact('problematicas', 'compromisos', 'user','ejes', 'acciones', 'estrategias'));
     }
 
     /**
@@ -77,7 +79,7 @@ class CompromisoController extends Controller
 
         ]);
         
-    return redirect()->route('compromiso.index')->with('status', 'Guardado con exito');
+        return redirect()->route('compromiso.index')->with('status', 'Guardado con exito');
 
 
         /*$data = BD::table('accions')->where('id');
@@ -157,7 +159,7 @@ class CompromisoController extends Controller
  
          ]);
          return back()->with('status_update', 'Actualizado con éxito');
-        }
+    }
 
 
     /*public function compromisos($id){

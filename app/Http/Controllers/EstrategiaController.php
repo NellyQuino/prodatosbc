@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Estrategia;
+use App\Models\Problematica;
 use App\Models\Eje;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,9 +24,9 @@ class EstrategiaController extends Controller
      public function index()
     {
         $ejes = Eje::all();
-
-        $estrategias = Estrategia::orderBy('eje_id','asc')->paginate(8);
-        return view('administrador.estrategias.estrategias', compact('estrategias', 'ejes'));
+        $problematicas = Problematica::all();
+        $estrategias = Estrategia::orderBy('problematica_id','asc')->paginate(8);
+        return view('administrador.estrategias.estrategias', compact('estrategias', 'problematicas'));
         
 
     }
@@ -36,8 +37,8 @@ class EstrategiaController extends Controller
      */
     public function create()
     {
-        $ejes= Eje::all();
-        return view('administrador.estrategias.nueva_estrategia', compact('ejes'));
+        $problematicas= Problematica::all();
+        return view('administrador.estrategias.nueva_estrategia', compact('problematicas'));
     }
 
     /**
@@ -51,19 +52,17 @@ class EstrategiaController extends Controller
         $request->validate([
             'number' => ['required', 'string', 'max:255',],
             'name' => ['required', 'string', 'max:255', 'unique:estrategias'],
-            'description' => ['required', 'string', 'max:255'],
-            'eje_id' => ['required'],
+            'problematica_id' => ['required'],
         ],[
             'number.required'=> 'El campo numero de la estrategia es obligatorio.',
-            'eje_id.required' => 'El campo eje es obligatorio',
+            'problematica_id.required' => 'El campo problematica es obligatorio',
             'name.unique' => 'La línea estratégica ya existe'
         ]);
 
         Estrategia::create([
             'number' => $request->number,
             'name' => $request->name,
-            'description' => $request->description,
-            'eje_id' => $request->eje_id,
+            'problematica_id' => $request->problematica_id,
             'state' => '1',
         ]);
         return redirect()->route('estrategias.index')->with('status', 'Guardado con exito');
@@ -90,8 +89,8 @@ class EstrategiaController extends Controller
     public function edit($id)
     {
         $estrategia = Estrategia::find($id);
-        $ejes = Eje::all();
-        return view('administrador.estrategias.editar_estrategia', compact('estrategia', 'ejes'));
+        $problematicas = Problematica::all();
+        return view('administrador.estrategias.editar_estrategia', compact('estrategia', 'problematicas'));
         
     }
 
@@ -108,17 +107,15 @@ class EstrategiaController extends Controller
         $request->validate([
             'number' => ['required', 'string', 'max:255',],
             'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'eje_id' => ['required'],
+            'problematica_id' => ['required'],
         ],[
             'number.required'=> 'El campo numero de la estrategia es obligatorio.',
-            'eje_id.required' => 'El campo eje es obligatorio',
+            'problematica_id.required' => 'El campo problematica es obligatorio',
         ]);
         $estrategia->update([
             'number' => request('number'),
             'name' => request('name'),
-            'description' => request('description'),
-            'eje_id' =>request('eje_id'),
+            'problematica_id' =>request('problematica_id'),
 
         ]);
 
@@ -139,6 +136,6 @@ class EstrategiaController extends Controller
         return back()->with('status_delete', 'Eliminado con éxito');
     }
     public function byProject($id){
-        return Estrategia::where('eje_id', $id)->get();
+        return Estrategia::where('problematica_id', $id)->get();
     }
 }

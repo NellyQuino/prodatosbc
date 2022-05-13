@@ -54,7 +54,11 @@ Route::put('/ejes/editar_eje/{eje}','EjeController@update')->name('eje.update')-
 Route::delete('/ejes/eliminar_eje/{eje_id}','EjeController@destroy')->name('eje.destroy')->middleware('EsAdmin');
 //-------------------------->ADMINISTRADOR->PROBLEMATICAS<----------------------------------
 Route::get('/problematicas', 'ProblematicasController@index')->name('problematicas.index')->middleware('EsAdmin');
-
+Route::get('/problematicas/nueva_problematica', 'ProblematicasController@create')->name('problematica.create')->middleware('EsAdmin');
+Route::post('/problematicas/nueva_problematica','ProblematicasController@store')->name('problematica.store')->middleware('EsAdmin');
+Route::get('/problematicas/editar_problematica/{problematica}','ProblematicasController@edit')->name('problematica.edit')->middleware('EsAdmin');
+Route::put('/problematicas/editar_problematica/{problematica}','ProblematicasController@update')->name('problematica.update')->middleware('EsAdmin');
+Route::delete('/problematicas/eliminar_problematica/{problematica_id}','ProblematicasController@destroy')->name('problematica.destroy')->middleware('EsAdmin');
 //-------------------------->ADMINISTRADOR->ESTRATEGIAS<----------------------------------
 
 Route::get('/estrategias', 'EstrategiaController@index')->name('estrategias.index')->middleware('EsAdmin');

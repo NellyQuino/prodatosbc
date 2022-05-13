@@ -8,8 +8,19 @@
             @endforeach
         </select>
     </div>
-
     @if (!is_null($selectedEje))
+    <div class="form-group select">
+        <label for="problematica" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Línea estratégica</label>
+        <select wire:model="selectedProblematica" class="form-control" required>
+            <option  selected>-- Elige una línea estratégica --</option>
+            @foreach($problematicas as $problematica)
+            <option value="{{ $problematica->id }}">{{ $problematica->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    @endif
+    @if (!is_null($selectedProblematica))
     <div class="form-group select">
         <label for="estrategia" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Línea estratégica</label>
         <select wire:model="selectedEstrategia" class="form-control" required>

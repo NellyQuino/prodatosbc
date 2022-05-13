@@ -11,16 +11,15 @@ class Estrategia extends Model
     protected $fillable = [
         'number',
         'name',
-        'description',
-        'eje_id',
+        'problematica_id',
         'state',
 
     ];
-    public function eje(){
-        return $this->belongsTo(Eje::class, "eje_id");
+    public function problematica(){
+        return $this->belongsTo(Problematica::class, "problematica_id");
 
     }
     public function accione(){
-        return $this->hasMany(Accion::class);
+        return $this->hasMany(Accion::class, "estrategia_id");
     }
 }
