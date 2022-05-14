@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Document</title>
+    <title>Reporte</title>
 
     <link href="css/pdf.css" rel="stylesheet" type="text/css">
     
@@ -71,7 +71,7 @@ th{
     <th>Correo electrónico: </th>
   </tr>
   <tr>
-    <td>{{$user->slug}}</td>
+    <td>{{$user->name}}</td>
     <td>{{$user->email}}</td>
   </tr>
     </table>
@@ -109,17 +109,27 @@ th{
     <th>Acciones</th>
     <td style="width:7%">Cant.</td>
   </tr>
+  @php 
+        $total = count($compromisos);
+    @endphp 
   @foreach ($compromisos as $compromiso)
   @foreach ($acciones as $accion)
   @foreach ($estrategias as $estrategia)
+  @foreach ($problematicas as $problematica)
   @foreach ($ejes as $eje)
-  @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->eje_id == $eje->id)
+  @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->problematica_id == $problematica ->id && $problematica-> eje_id == $eje->id)
   <tr>
-    <td colspan="2">{{$eje->name}}</td>
-    <td colspan="2">{{$estrategia->name}}</td>
-    <td colspan="2">{{$accion->name}}</td>
+    <td>{{$eje->number}}</td>
+    <td>1</td>
+    <td>{{$problematica->number}}</td>
+    <td>1</td>
+    <td>{{$estrategia->number}}</td>
+    <td>1</td>
+    <td>{{$accion->number}}</td>
+    <td>1</td>
   </tr>
   @endif
+  @endforeach
   @endforeach
   @endforeach
   @endforeach
@@ -136,13 +146,13 @@ th{
 </tr> -->
   <tr>
     <th>Total</th>
-    <td></td>
+    <td>{{$total}}</td>
     <th>Total</th>
-    <td></td>
+    <td>{{$total}}</td>
     <th>Total</th>
-    <td></td>
+    <td>{{$total}}</td>
     <th>Total</th>
-    <td></td>
+    <td>{{$total}}</td>
   </tr>
     </table>
 
@@ -153,40 +163,42 @@ th{
     @foreach ($compromisos as $compromiso)
     @foreach ($acciones as $accion)
     @foreach ($estrategias as $estrategia)
+    @foreach ($problematicas as $problematica)
     @foreach ($ejes as $eje)
-    @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->eje_id == $eje->id)
+    @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->problematica_id == $problematica ->id && $problematica-> eje_id == $eje->id)
     <table style="width:100%">
-    <tr>
-    <td colspan="3"> <b>Servidor público que reporta:</b> {{$compromiso->responsable}}</td>
     
-</tr>
   <tr>
     <th>Eje</th>
+    <th>Problematica</th>
     <th>Estrategia</th>
     <th>Línea de acción</th>
 </tr>
 <tr>
     <td>{{$eje->name}}</td>
+    <td>{{$problematica->name}}</td>
     <td>{{$estrategia->name}}</td>
     <td>{{$accion->name}}</td>
 </tr>
 <tr>
-    <th colspan="3">Descripción de la actividad </th>
+    <th colspan="4">Descripción de la actividad </th>
 </tr>
 <tr>
-    <td colspan="3">{{$compromiso->action_plan}}</td>
+    <td colspan="4">{{$compromiso->action_plan}}</td>
 </tr>
 <tr>
-    <th colspan="2">Fecha en que se adquirió el compromiso:</th>
+    <th colspan="3">Fecha en que se adquirió el compromiso:</th>
     <td>{{$compromiso->created_at}}</td>
 </tr>
 <tr>
-    <th colspan="2">Fecha de entrega de la evidencia:</th>
+    <th colspan="3">Fecha de entrega de la evidencia:</th>
     <td>{{$compromiso->date_delivery}}</td>
 </tr>
 <tr>
-    <td colspan="2"></td>
-    <td><b>Estatus:</b>
+    <td><b>Fecha en que se validó la evidencia:</b></td>
+    <td>FECHA</td>
+    <td><b>Estatus:</b></td>
+    <td>
     @if ($compromiso->detail == NULL)
       Sin revisar
     @else
@@ -197,6 +209,7 @@ th{
     </table>
     <br>
     @endif
+    @endforeach
     @endforeach
     @endforeach
     @endforeach

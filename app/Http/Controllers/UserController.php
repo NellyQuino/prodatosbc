@@ -8,6 +8,7 @@ use App\Models\Accion;
 use App\Models\Estrategia;
 use App\Models\Eje;
 use App\Models\Compromiso;
+use App\Models\Problematica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -425,12 +426,13 @@ class UserController extends Controller
         // $user = User::where('id', $id)->first();
         $user = Auth::user()->id;
         $ejes = Eje::all();
-        $estrategias = Estrategia::where('eje_id', $eje->id)->get();
+        $problematicas = Problematica::where('eje_id', $eje->id)->get();
+        $estrategias = Estrategia::all();
         $acciones = Accion::all();
         $compromisos = Compromiso::where('user_id', $user)->get();
         $plantilla = "Evidencias Sujeto";
 
-        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'eje' => $eje, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
+        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'eje' => $eje, 'problematicas' => $problematicas,'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
     }
 
     public function pantalla_evidencia(User $user, Eje $eje, $id){
@@ -550,13 +552,14 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
 
         $ejes = Eje::all();
+        $problematicas = Problematica::all();
         $estrategias = Estrategia::all();
         $acciones = Accion::all();
         
         // $compromiso = Compromiso::where('user_id', $id)->first();
         $compromisos = Compromiso::where('user_id', $id)->get(); //si falla poner paginate();
 
-        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'compromisos'=>$compromisos, 'ejes'=>$ejes, 'estrategias'=>$estrategias, 'acciones'=>$acciones]);
+        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'compromisos'=>$compromisos, 'ejes'=>$ejes, 'estrategias'=>$estrategias, 'acciones'=>$acciones, 'problematicas'=>$problematicas]);
         // $pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
         // return view('administrador.sujetos.pdf', compact('user','compromisos'));

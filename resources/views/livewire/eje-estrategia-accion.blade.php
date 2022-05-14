@@ -12,7 +12,7 @@
     <div class="form-group select">
         <label for="problematica" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Línea estratégica</label>
         <select wire:model="selectedProblematica" class="form-control" required>
-            <option  selected>-- Elige una línea estratégica --</option>
+            <option  selected>-- Elige una Problematica --</option>
             @foreach($problematicas as $problematica)
             <option value="{{ $problematica->id }}">{{ $problematica->name }}</option>
             @endforeach
