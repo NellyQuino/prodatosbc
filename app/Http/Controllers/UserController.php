@@ -288,7 +288,8 @@ class UserController extends Controller
     public function seguimiento_eje(Request $request, User $user, Eje $eje) {
         $usuario = $user->id;
         $ejes = Eje::All();
-        $estrategias = Estrategia::where('eje_id', $eje->id)->get();
+        $problematicas = Problematica::where('eje_id', $eje->id)->get();
+        $estrategias = Estrategia::all();
         $acciones = Accion::all();
         $plantilla = "Seguimiento Sujeto";
 
@@ -305,7 +306,7 @@ class UserController extends Controller
             $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', 'Aceptado')->get();
         }
 
-        return view('administrador.sujetos.SeguimientoSujetoEje', ['usuario' => $user, 'user' => $usuario, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
+        return view('administrador.sujetos.SeguimientoSujetoEje', ['usuario' => $user, 'user' => $usuario, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'problematicas' => $problematicas, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
 
     }
     // public function seguimiento_eje_accion(Request $request, User $user, Eje $eje, Accion $accion) {
@@ -443,8 +444,8 @@ class UserController extends Controller
         $date = date('Y-m-d H:i:s');
 
         // PASTE
-        $acciones_1 = DB::select('SELECT e5.id as Id2, e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
-        (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user2, 'EjId' => $eje->id]);
+        $acciones_1 = DB::select('SELECT e5.id as Id2, e3.id, e3.name, e5.action_plan, e5.date_implementation, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5, problematicas as e6 WHERE
+        (e1.id = e2.problematica_id && e6.eje_id = e1.id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id)', ['SujId' => $user2, 'EjId' => $eje->id]);
 
         $acciones = array();
         $archivos = array();
@@ -453,8 +454,8 @@ class UserController extends Controller
             array_push($acciones,array("Id2" => $prueba->Id2, "Id" => $prueba->id, "Nombre" => $prueba->name, "Plan_Accion" => $prueba->action_plan, "Fecha_Entrega" => $prueba->date_implementation, "Estado" => $prueba->state));
         }
         foreach($acciones_1 as $accion) {
-            $archivos_1 = DB::select('SELECT e5.id as Id2, e3.id, e5.archive, e5.date_implementation, e5.comment, e5.detail, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5 WHERE
-            (e1.id = e2.eje_id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id && :AcId = e3.id)', ['SujId' => $user2, 'EjId' => $eje->id,'AcId' => $accion->id]);
+            $archivos_1 = DB::select('SELECT e5.id as Id2, e3.id, e5.archive, e5.date_implementation, e5.comment, e5.detail, e5.state FROM ejes as e1, estrategias as e2, accions as e3, users as e4, compromisos as e5, problematicas as e6 WHERE
+            (e1.id = e2.problematica_id && e6.eje_id = e1.id && e2.id = e3.estrategia_id && e3.id = e5.accion_id && e4.id = e5.user_id) && (:SujId = e4.id && :EjId = e1.id && :AcId = e3.id)', ['SujId' => $user2, 'EjId' => $eje->id,'AcId' => $accion->id]);
 
 
             foreach($archivos_1 as $prueba2) {
@@ -499,12 +500,13 @@ class UserController extends Controller
         // PASTE
         $user = Auth::user()->id;
         $ejes = Eje::all();
-        $estrategias = Estrategia::where('eje_id', $eje->id)->get();
+        $problematicas = Problematica::where('eje_id', $eje->id)->get();
+        $estrategias = Estrategia::all();
         $acciones = Accion::all();
         $compromisos = Compromiso::where('user_id', $user)->get();
         $plantilla = "Evidencias Sujeto";
 
-        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'eje' => $eje, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
+        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'eje' => $eje, 'problematicas' => $problematicas, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
     }
 
     public function eliminar_evidencia(User $user, Eje $eje, $id){
@@ -524,12 +526,13 @@ class UserController extends Controller
         // PASTE
         $user = Auth::user()->id;
         $ejes = Eje::all();
-        $estrategias = Estrategia::where('eje_id', $eje->id)->get();
+        $problematicas = Problematica::where('eje_id', $eje->id)->get();
+        $estrategias = Estrategia::all();
         $acciones = Accion::all();
         $compromisos = Compromiso::where('user_id', $user)->get();
         $plantilla = "Evidencias Sujeto";
 
-        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'eje' => $eje, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
+        return view('sujeto.EvidenciasSujetoEje', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'eje' => $eje, 'problematicas' => $problematicas, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
         //return back()->with(['estado' => 'Eliminado', 'deteccion' => $id]);
     }
     public function descargar_archivo($id) {
