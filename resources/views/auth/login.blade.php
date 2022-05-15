@@ -23,6 +23,9 @@ window.addEventListener('popstate', function(event) {
 </head>
 
 <body style="background:#F3F3F3;">
+<!-- <div class="alert alert-danger" role="alert">
+  <h1> CIERRA LAS PESTAÑAS PUERCO</h1>A simple danger alert—check it out!
+</div> -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 row justify-content-center">
