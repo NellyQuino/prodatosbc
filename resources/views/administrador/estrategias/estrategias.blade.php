@@ -29,7 +29,8 @@
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
-                    <th>Eje</th>
+                    <th>Numero del eje</th>
+                    <th>Nombre del eje</th>
                     <th>Problemática</th>
                     <th>Línea estratégica</th>
                     <th>Opciones</th>
@@ -42,7 +43,8 @@
                 @endphp
                 @foreach($estrategias as $estrategia)
                 <tr>
-                    <td style="width:20%;" class="align-top"> {{ $estrategia-> problematica-> eje -> number}} {{ $estrategia-> problematica-> eje -> name}}</td>
+                    <td style="width:20%;" class="align-top"> {{ $estrategia-> problematica-> eje -> number}} </td>
+                    <td style="width:20%;" class="align-top"> {{ $estrategia-> problematica-> eje -> name}}</td>
                     <td style="width:40%;" class="align-top"> {{ $estrategia-> problematica-> number}} {{ $estrategia-> problematica->name}}</td>
                     <td style="width:30%;" class="align-top">{{ $estrategia->number }} {{ $estrategia->name }}</td>
                     <td style="width:5%;">

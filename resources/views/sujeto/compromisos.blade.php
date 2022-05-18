@@ -28,7 +28,8 @@
 
                     <thead>
                         <tr>
-                            <th>Eje</th>
+                            <th>Numero del eje</th>
+                            <th>Nombre del eje</th>
                             <th>Problematica</th>
                             <th>Estrategia</th>
                             <th>Accion</th>
@@ -40,9 +41,10 @@
                         @foreach ($compromisos as $compromiso)
                         <tr>
                             <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica -> eje ->number}}</td>
-                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica ->number}}</td>
-                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia ->number}}</td>
-                            <td class="align-top" style="width:10%;">{{$compromiso -> accion ->number}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica -> eje ->name}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica ->number}} {{$compromiso -> accion -> estrategia -> problematica ->name}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia ->number}} {{$compromiso -> accion -> estrategia ->name}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion ->number}} {{$compromiso -> accion ->name}}</td>
                             <td class="align-top" style="width:60%;">{{$compromiso -> action_plan}}</td>
                             <td style="width:5%;">
                                 <button type="button" class="btn btn-primary md-2" data-toggle="tooltip" title="Editar compromiso" data-bs-toggle="modal" data-bs-target="#modal-editar-compromiso-{{ $compromiso->id }}" style="background: #059B97;"> <i class="fas fa-edit"></i></button>

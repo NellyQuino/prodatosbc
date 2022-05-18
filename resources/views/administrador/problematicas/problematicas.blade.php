@@ -29,7 +29,8 @@
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
-                    <th>Eje</th>
+                    <th>Numero del eje</th>
+                    <th>Nombre del eje</th>
                     <th>Problemática</th>
                     <th>Opciones</th>
                 </tr>
@@ -41,7 +42,8 @@
                 @endphp
                 @foreach($problematicas as $problematica)
                 <tr>
-                    <td style="width:20%;" class="align-top"> {{ $problematica-> eje -> number}} {{ $problematica-> eje -> name}}</td>
+                    <td style="width:20%;" class="align-top"> {{ $problematica-> eje -> number}} </td>
+                    <td style="width:20%;" class="align-top"> {{ $problematica-> eje -> name}}</td>
                     <td style="width:40%;" class="align-top"> {{ $problematica-> number}} {{ $problematica->name}}</td>
                     <td style="width:5%;">
                         <a type="button" class="btn btn-primary" style="background: #059B97;"  href="{{ route('problematica.edit', $problematica->id) }}"> <i class="fas fa-edit"></i></a>

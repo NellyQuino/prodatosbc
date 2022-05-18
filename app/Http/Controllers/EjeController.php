@@ -21,7 +21,7 @@ class EjeController extends Controller
     
     public function index()
     {
-        $ejes = Eje::orderBy('name','asc')->paginate(8);//Consulto los datos
+        $ejes = Eje::orderBy('number','asc')->paginate(8);//Consulto los datos
         return view('administrador.ejes.ejes', [//Cargo la vista 
             'ejes'=> $ejes//Pasamos los datos
         ]);
