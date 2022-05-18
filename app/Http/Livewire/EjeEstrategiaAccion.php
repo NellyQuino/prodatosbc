@@ -34,6 +34,7 @@ class EjeEstrategiaAccion extends Component
                 $this->estrategias = Estrategia::where('problematica_id', $accion->estrategia->problematica_id)->get();
                 $this->Problematicas = Problematicas::where('eje_id', $accion->estrategia->problematica->eje_id)->get();
                 $this->selectedEje = $accion->estrategia->problematica->eje_id;
+                $this->selectedProblematica = $accion->estrategia->problematica_id;
                 $this->selectedEstrategia = $accion->estrategia_id;
             }
         }

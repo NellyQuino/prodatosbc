@@ -28,7 +28,10 @@
 
                     <thead>
                         <tr>
-                            <th>Línea de acción</th>
+                            <th>Eje</th>
+                            <th>Problematica</th>
+                            <th>Estrategia</th>
+                            <th>Accion</th>
                             <th>Descripción de la actividad</th>
                             <th>Opciones</th>
                         </tr>
@@ -36,8 +39,11 @@
                     <tbody>
                         @foreach ($compromisos as $compromiso)
                         <tr>
-                            <td class="align-top" style="width:20%;">{{$compromiso -> accion ->name}}</td>
-                            <td class="align-top" style="width:20%;">{{$compromiso -> action_plan}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica -> eje ->number}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica ->number}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia ->number}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion ->number}}</td>
+                            <td class="align-top" style="width:60%;">{{$compromiso -> action_plan}}</td>
                             <td style="width:5%;">
                                 <button type="button" class="btn btn-primary md-2" data-toggle="tooltip" title="Editar compromiso" data-bs-toggle="modal" data-bs-target="#modal-editar-compromiso-{{ $compromiso->id }}" style="background: #059B97;"> <i class="fas fa-edit"></i></button>
                             </td>
