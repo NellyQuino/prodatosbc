@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('slug')->unique()->nullable();
             $table->boolean('state')->nullable();;
             $table->string('name')->nullable();
+            $table->string('sector')->nullable();
+            $table->string('siglas')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

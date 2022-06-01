@@ -72,7 +72,7 @@
                         <p>{{$compromiso->action_plan}}</p>
                     </td>
                     <td>
-                        <p>Fecha...</p>
+                        <p>{{$compromiso->created_at}}</p>
                     </td>
                     <td>
                       @if ($compromiso->detail == NULL && $compromiso->state == 1)

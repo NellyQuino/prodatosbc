@@ -196,7 +196,7 @@ th{
 </tr>
 <tr>
     <td><b>Fecha en que se validó la evidencia:</b></td>
-    <td>FECHA</td>
+    <td>{{$compromiso->date_implementation}}</td>
     <td><b>Estatus:</b></td>
     <td>
     @if ($compromiso->detail == NULL)

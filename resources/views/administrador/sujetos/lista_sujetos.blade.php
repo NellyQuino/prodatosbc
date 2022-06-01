@@ -63,6 +63,7 @@
                     <th>ID</th>
                     <th>Sujeto Obligado</th>
                     <th>Nombre del Oficial</th>
+                    <th>Sector</th>
                     <th>Correo electrónico</th>
                     <th>Opciones</th>
                 </tr>
@@ -86,8 +87,11 @@
                         <td style="width:15%;" class="align-top">
                             <p>{{$user->username}}</p>
                         </td>
-                        <td style="width:50%;" class="align-top">
+                        <td style="width:30%;" class="align-top">
                             <p>{{$user->name}} </p>
+                        </td>
+                        <td style="width:20%;" class="align-top">
+                            <p>{{$user->sector}} </p>
                         </td>
                         <td style="width:25%;" class="align-top">
                             <p>{{$user->email}} </p>

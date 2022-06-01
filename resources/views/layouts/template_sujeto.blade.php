@@ -13,6 +13,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="theme-color" content="#7952b3">
 
+    <script>
+        function myFunction() {
+            alert("Por seguridad, cierre todas las pestañas de PRODATOSBC");
+        }
+    </script>
+    
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -45,7 +51,7 @@
             <button class="btn btn-light dropdown-toggle ms-auto" data-toggle="tooltip" title="Cerrar sesión" style="color: #059B97" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false"></button>
             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownMenuButton2">
                 <a class="dropdown-item" href="{{ route('logout.perform') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit(); myFunction();">
                     {{ __('Salir') }}
                 </a>
                 <form id="logout-form" action="{{ route('logout.perform') }}" method="POST" class="d-none">

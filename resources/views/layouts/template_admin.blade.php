@@ -18,10 +18,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
-function myFunction() {
-  alert("Por seguridad, cierre todas las pestañas de PRODATOSBC");
-}
-</script>
+        function myFunction() {
+            alert("Por seguridad, cierre todas las pestañas de PRODATOSBC");
+        }
+    </script>
     <meta name="theme-color" content="#7952b3">
 
     <style>
@@ -116,7 +116,7 @@ function myFunction() {
                             </a>
                             
                         </li>
-                        <li  class=" {{ setActive('ejes.index') }} {{ setActive('problematicas.index') }} {{ setActive('estrategias.index') }}  {{ setActive('acciones.index') }}" >
+                        <li  class=" {{ setActive('ejes.index') }} {{ setActive('problematicas.index') }} {{ setActive('estrategias.index') }}  {{ setActive('acciones.index') }}  {{ setActive('problematica.create') }} {{ setActive('estrategia.create') }}  {{ setActive('accion.create') }}" >
                             
                             <a href="{{ route('ejes.index') }}" class="nav-new">
                        <span> <i class="fas fa-list"></i>Alta EPEA </span> 

@@ -40,7 +40,6 @@ class UserController extends Controller
 
     }
     public function index(Request $request)
-
     {
         $text = trim($request->get('text'));
         //$users = User::where('rol_id', '2')->get();
@@ -48,6 +47,7 @@ class UserController extends Controller
        $users= User::where('number_user','LIKE','%'.$text.'%')
                     ->orWhere('username', 'LIKE', '%'.$text.'%')
                     ->where('rol_id', '2')
+                    ->orWhere('sector', 'LIKE', '%'.$text.'%')
                     ->orderBy('number_user','asc')
                     ->paginate(8);
 
@@ -81,6 +81,8 @@ class UserController extends Controller
             'number_user' => 'required|string|size:5|unique:users',
             'user' => 'required|string|max:255|unique:users',
             'name' => 'required|string|max:255',
+            'sector' => 'required|string|max:255',
+            'siglas' => 'required|string|max:255',
         ],[
             'number_user.required' => 'El campo ID es obligatorio.',
             'number_user.unique' => 'Ya existe un registro con este ID.',
@@ -98,7 +100,9 @@ class UserController extends Controller
             'rol_id' => '2',
             'state' => '1',
             'user' => $request->user,
-            'name' => $request->name
+            'name' => $request->name,
+            'sector' => $request->sector,
+            'siglas' => $request->siglas,
 
 
 
@@ -379,6 +383,7 @@ class UserController extends Controller
                 $compromiso->detail = "Aceptado";
             }
             $compromiso->comment = $request->input('Text1');
+            $compromiso->date_implementation = date('Y-m-d H:i:s');
             //dd($compromisos);
             $compromiso->save();
         }
