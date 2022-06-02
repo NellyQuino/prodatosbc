@@ -47,13 +47,13 @@
         }
 
         .nav-new {
-  display: block;
-  color: #0d6efd;
-  text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
+        display: block;
+        color: #0d6efd;
+        text-decoration: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        }
 
-</style>
+    </style>
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{url('css/Estilos.css?v=').time()}}">
@@ -109,7 +109,7 @@
                 </div>
                 <div class="sidebar-content mt-3">
                     <ul class="navbar-nav" style="display: flex;">
-                        <li  class=" {{ setActive('user.index') }} " >
+                        <li  class=" {{ setActive('user.index') }} {{ setActive('sujeto.seguimiento') }} {{ setActive('sujeto.seguimiento.eje') }} {{ setActive('sujeto.seguimiento.eje.accion') }} {{ setActive('descargar_archivo') }}" >
                             
                             <a href="{{ route('user.index') }}" class="nav-new">
                                 <span> <i class="fas fa-users"></i>Alta SO </span>

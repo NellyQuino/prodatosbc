@@ -33,6 +33,20 @@
                 font-size: 3.5rem;
             }
         }
+    </style>
+    <style>
+        .active span{
+        background-color: #BD3284 !important;
+        font-weight: bold !important;
+        text-decoration: none !important;
+        }
+
+        .nav-new {
+        display: block;
+        color: #0d6efd;
+        text-decoration: none;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        }
 
     </style>
     <!-- Custom styles for this template -->
@@ -76,10 +90,17 @@
                                 <img src="{{ asset('/images/Avatar2.png') }}">
                             </a>
                         </li>
+                        @php
+                            $str = strlen(Auth::user()->username);
+                        @endphp
                         <li class="nav-item">
                             <a class="nav-link  mt-0 text-center" aria-current="page" href="#">
                                 <label class="text-center col" style=" font-family: Inter; color:white;" for="">
-                                    <h5>{{ Auth::user()->username }}</h5>
+                                    @if ($str <= 21)
+                                        <h5>{{ Auth::user()->username }}</h5>
+                                    @else
+                                        <h5>{{ Auth::user()->siglas }}</h5>
+                                    @endif
                                 </label>
                             </a>
                         </li>
@@ -93,11 +114,18 @@
                     </ul>
                 </div>
                 <div class="sidebar-content mt-3">
-                    <a href="{{ route('compromiso.index') }}">
-                        <span><i class="far fa-file-alt"></i>R. Compromisos</span>
-                    </a>
-                    <a href="{{ route('evidencias') }}"><span><i class="fas fa-file-medical"></i>R. Evidencias</span></a>
-
+                    <ul class="navbar-nav" style="display: flex;">
+                        <li class=" {{ setActive('compromiso.index') }} {{ setActive('compromiso.create') }}">
+                            <a href="{{ route('compromiso.index') }}" class="nav-new">
+                            <span><i class="far fa-file-alt"></i>R. Compromisos</span>
+                            </a>
+                        </li>
+                        <li class=" {{ setActive('evidencia') }} {{ setActive('evidencias_eje') }} {{ setActive('pantalla_evidencia') }} {{ setActive('cargar_evidencia') }} {{ setActive('evidencia.eliminar') }}">
+                            <a href="{{ route('evidencias') }}" class="nav-new">
+                            <span><i class="fas fa-file-medical"></i>R. Evidencias</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
             <!--Fin Siderbar-->

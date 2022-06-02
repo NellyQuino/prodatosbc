@@ -150,12 +150,11 @@ class UserController extends Controller
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'number_user' => ['required', 'string'],
-            'number_user' => ['required','string','size:5','unique:users'],
+            'number_user' => ['required','string','size:5'],
              Rule::unique('users')->ignore($user->id)
         ],[
 
             'number_user.required' => 'El campo ID es obligatorio.',
-            'number_user.unique' => 'Ya existe un registro con este ID.',
             'number_user.size' => 'El campo ID debe contener al menos 5 caracteres.',
 
 
