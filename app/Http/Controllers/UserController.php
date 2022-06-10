@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use App\Models\Logo;
 use App\Models\Accion;
 use App\Models\Estrategia;
 use App\Models\Eje;
@@ -547,7 +547,7 @@ class UserController extends Controller
         //dd($archivo);
         //$archivo = public_path('compromisos')."\\"."$nombre";
         $ruta = Storage::disk('compromisos')->getDriver()->getAdapter()->getPathPrefix();
-        $archivo = $ruta."\\$nombre";
+        $archivo = $ruta."//$nombre";
 
         return Response::download($archivo, $nombre, array('Content-Type: application/zip','Content-Length: '. filesize($archivo)));
         //return Response::download($archivo);
@@ -557,7 +557,8 @@ class UserController extends Controller
     {
 
         $user = User::where('id', $id)->first();
-
+        $logo = Logo::where('user_id', $id)->first();
+        $logoa = Logo::where('user_id', 1)->first();
         $ejes = Eje::all();
         $problematicas = Problematica::all();
         $estrategias = Estrategia::all();
@@ -566,7 +567,7 @@ class UserController extends Controller
         // $compromiso = Compromiso::where('user_id', $id)->first();
         $compromisos = Compromiso::where('user_id', $id)->get(); //si falla poner paginate();
 
-        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'compromisos'=>$compromisos, 'ejes'=>$ejes, 'estrategias'=>$estrategias, 'acciones'=>$acciones, 'problematicas'=>$problematicas]);
+        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'logo'=>$logo, 'logoa'=>$logoa, 'compromisos'=>$compromisos, 'ejes'=>$ejes, 'estrategias'=>$estrategias, 'acciones'=>$acciones, 'problematicas'=>$problematicas]);
         // $pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
         // return view('administrador.sujetos.pdf', compact('user','compromisos'));

@@ -38,6 +38,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\Role::create([
             'name'   => 'Sujeto obligado',
         ]);
+        \App\Models\Logo::create([
+            'user_id'   => 1,
+            'image'   => 'Sin imagen',
+            'description'   => 'Sin imagen',
+        ]);
     }
 
 }

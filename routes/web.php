@@ -85,6 +85,7 @@ Route::post('descargar/{id}','UserController@descargar_archivo')->name('descarga
 Route::get('/reportes', 'ReportsController@index')->name('reportes.index')->middleware('EsAdmin');
 Route::get('reportes-pdf/{user}', 'UserController@user_pdf')->name('sujeto.seguimiento.pdf')->middleware('EsAdmin');
 Route::post('reportes-pdf/marcas-de-agua', 'ReportsController@store')->name('reportes.marcas.store')->middleware('EsAdmin');
+Route::post('reportes-pdf/marcas-de-agua-sujeto', 'ReportsController@store2')->name('reportes.marcas.store2')->middleware('esSujeto');
 
 //-------------------------->SUJETO<----------------------------------}
 Route::get('panel-evidencias','UserController@evidencias_sujeto')->name('evidencia')->middleware('esSujeto');

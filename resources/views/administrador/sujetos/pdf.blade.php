@@ -26,13 +26,16 @@ th{
   
   <body>
     <header>
-
+      <div class="container2">
+      @if($logo != null)
+        <img src="{{ storage_path('/app/public/logos/' . $logo->image) }}" style="width: 300px; height: 150px;">
+      @endif
+      </div>
       <div class="container">
-      
-      <img src="{{ storage_path('/app/public/logos/1647372823-new.jpg') }}" style="width: 300px; height: 150px;">
-  
+      @if($logoa != null)
+      <img src="{{ storage_path('/app/public/logos/' . $logoa->image) }}" style="width: 300px; height: 150px;">
+      @endif
       <!-- <h1>Reporte de {{$user->username}}</h1> -->
-
       </div>
 
     </header>
