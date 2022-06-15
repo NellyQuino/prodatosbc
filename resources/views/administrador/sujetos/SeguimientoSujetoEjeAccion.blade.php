@@ -83,11 +83,11 @@
                 <td style="width: 25%">
                     @if ($compromiso->detail == NULL && $compromiso->state == 1)
                         <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
-                    @elseif ($compromiso->detail == "Incompleto" && $compromiso->state == 1)
+                    @elseif ($compromiso->detail == "No cumplido" && $compromiso->state == 1)
                         <p><img src="{{url('images/Icon_estado2.png')}}" alt=""></p>
                     @elseif ($compromiso->detail == "Fuera de Tiempo" && $compromiso->state == 0)
                         <p><img src="{{url('images/Icon_estado3.png')}}" alt=""></p>
-                    @elseif ($compromiso->detail == "Aceptado" && $compromiso->state == 1)
+                    @elseif ($compromiso->detail == "Cumplido" && $compromiso->state == 1)
                         <p><img src="{{url('images/Icon_estado1.png')}}" alt=""></p>
                     @endif
                 </td>
@@ -114,8 +114,8 @@
             <input type="hidden" name="datapack" value="regreso">
             <input type="hidden" name="analisis_accion" value="{{(string)$compromiso->id}}">
             <select name="Campo" id="">
-                <option value="Incompleto">Incompleto</option>
-                <option value="Aceptado">Aceptado</option>
+                <option value="No cumplido">No cumplido</option>
+                <option value="Cumplido">Cumplido</option>
             </select>
             <input type="submit" value="Guardar" class="EvidenciaCapsula"> <br><br>
             <textarea name="Text1" cols="40" rows="5" style="width:80%; height:100px;" placeholder="Comentarios">{{(string)$compromiso->comment}}</textarea>

@@ -302,11 +302,11 @@ class UserController extends Controller
         else if ($request->input('campox') == "Sin Revision") {
             $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', null)->get();
         }
-        else if ($request->input('campox') == "Incompleto") {
-            $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', 'Incompleto')->get();
+        else if ($request->input('campox') == "No cumplido") {
+            $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', 'No cumplido')->get();
         }
-        else if ($request->input('campox') == "Aceptado") {
-            $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', 'Aceptado')->get();
+        else if ($request->input('campox') == "Cumplido") {
+            $compromisos = Compromiso::where('user_id', $usuario)->where('state', 1)->where('detail', 'Cumplido')->get();
         }
 
         return view('administrador.sujetos.SeguimientoSujetoEje', ['usuario' => $user, 'user' => $usuario, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $eje, 'problematicas' => $problematicas, 'estrategias' => $estrategias, 'acciones' => $acciones, 'compromisos' => $compromisos]);
@@ -374,12 +374,12 @@ class UserController extends Controller
         else if ($request->input('datapack') == "regreso") {
             //$compromisos =  Compromiso::where('id', $request->input('analisis_accion'))->get(); Separa el objeto de los nuevos campos, no puede haber save ni update
             $compromiso = Compromiso::find($request->input('analisis_accion')); // Acepta cambios en Save
-            if ($request->input('Campo') == "Incompleto"){
-                $compromiso->detail = "Incompleto";
+            if ($request->input('Campo') == "No cumplido"){
+                $compromiso->detail = "No cumplido";
             }
             else {
                 $compromiso->state = 1;
-                $compromiso->detail = "Aceptado";
+                $compromiso->detail = "Cumplido";
             }
             $compromiso->comment = $request->input('Text1');
             $compromiso->date_implementation = date('Y-m-d H:i:s');
@@ -547,7 +547,7 @@ class UserController extends Controller
         //dd($archivo);
         //$archivo = public_path('compromisos')."\\"."$nombre";
         $ruta = Storage::disk('compromisos')->getDriver()->getAdapter()->getPathPrefix();
-        $archivo = $ruta."//$nombre";
+        $archivo = $ruta."\\$nombre";
 
         return Response::download($archivo, $nombre, array('Content-Type: application/zip','Content-Length: '. filesize($archivo)));
         //return Response::download($archivo);

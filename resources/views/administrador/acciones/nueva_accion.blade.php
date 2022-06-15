@@ -27,7 +27,7 @@
             <div class="form-group">
                     <div class="mt-2">
                         <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Numero de la Accion</label>
-                        <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Numero de la Accion"  required>{{ old('number') }}</input>
+                        <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Numero de la Accion"  value="{{ old('number') }}"  required></input>
                         @error('number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

@@ -77,11 +77,11 @@
                     <td>
                       @if ($compromiso->detail == NULL && $compromiso->state == 1)
                           <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
-                      @elseif ($compromiso->detail == "Incompleto" && $compromiso->state == 1)
+                      @elseif ($compromiso->detail == "No cumplido" && $compromiso->state == 1)
                           <p><img src="{{url('images/Icon_estado2.png')}}" alt=""></p>
                       @elseif ($compromiso->detail == "Fuera de Tiempo" && $compromiso->state == 1)
                           <p><img src="{{url('images/Icon_estado3.png')}}" alt=""></p>
-                      @elseif ($compromiso->detail == "Aceptado" && $compromiso->state == 1)
+                      @elseif ($compromiso->detail == "Cumplido" && $compromiso->state == 1)
                           <p><img src="{{url('images/Icon_estado1.png')}}" alt=""></p>
                       @endif
                     </td>

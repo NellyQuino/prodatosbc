@@ -4,7 +4,7 @@
         <select wire:model="selectedEje" class="form-control" required>
             <option selected>-- Elige un eje --</option>
             @foreach($ejes as $eje)
-            <option value="{{ $eje->id }}"  >{{ $eje->number }}</option>
+            <option value="{{ $eje->id }}"  >{{ $eje->name }}</option>
             @endforeach
         </select>
     </div>
@@ -14,7 +14,7 @@
         <select wire:model="selectedProblematica" class="form-control" required>
             <option  selected>-- Elige una Problematica --</option>
             @foreach($problematicas as $problematica)
-            <option value="{{ $problematica->id }}">{{ $problematica->number }}</option>
+            <option value="{{ $problematica->id }}">{{ $problematica->name }}</option>
             @endforeach
         </select>
     </div>
@@ -26,7 +26,7 @@
         <select wire:model="selectedEstrategia" class="form-control" required>
             <option  selected>-- Elige una línea estratégica --</option>
             @foreach($estrategias as $estrategia)
-            <option value="{{ $estrategia->id }}">{{ $estrategia->number }}</option>
+            <option value="{{ $estrategia->id }}">{{ $estrategia->name }}</option>
             @endforeach
         </select>
     </div>
@@ -39,7 +39,7 @@
         <select wire:model="selectedAccion"  class="form-control @error('accion_id') is-invalid @enderror" name="accion_id" required> 
             <option value="" selected>-- Elige una línea de acción --</option>
             @foreach($acciones as $accion)
-            <option value="{{ $accion->id }}">{{ $accion->number }}</option>
+            <option value="{{ $accion->id }}">{{ $accion->name }}</option>
             @endforeach
         </select>
         @error('accion_id')
