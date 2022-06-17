@@ -63,9 +63,10 @@ window.addEventListener('popstate', function(event) {
                             </div>
                         </form>
                     </div>
+                    <a href="{{ route('password.update') }}">¿Olvidaste tu contraseña?</a>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
 </body>

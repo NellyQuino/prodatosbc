@@ -103,3 +103,4 @@ Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@u
 Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy')->middleware('esSujeto');
 //---------------------->EVIDENCIAS-------------------------------
 // }); //middleware PreventBackHistory
+//----------------------------------------------------------------------------------------------------------------
