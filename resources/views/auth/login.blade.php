@@ -30,7 +30,7 @@ window.addEventListener('popstate', function(event) {
         <div class="row justify-content-center">
             <div class="col-md-6 row justify-content-center">
                  <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}" width="350" loading="lazy" />
-                <div class="card" style="height: 50rem;">
+                <div class="card" style="height: 40rem;">
                     <div class="card-header" style="color: #BE3286;font-size:250%;font-family:inter;text-align:center"><b>Inicio de Sesión</b></div>
 
                     <div class="card-body row justify-content-center mt-4 mx-auto">
@@ -63,7 +63,7 @@ window.addEventListener('popstate', function(event) {
                             </div>
                         </form>
                     </div>
-                    <a href="{{ route('password.update') }}">¿Olvidaste tu contraseña?</a>
+                    <a href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
                 </div>
             </div>
         </div>  

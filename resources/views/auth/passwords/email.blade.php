@@ -27,7 +27,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 row justify-content-center">
                  <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}" width="350" loading="lazy" />
-                <div class="card" style="height: 50rem;">
+                <div class="card" style="height: 40rem;">
                     <div class="card-header" style="color: #BE3286;font-size:250%;font-family:inter;text-align:center"><b>{{ __('Restablecer contraseña') }}</b></div>
 
                     <div class="card-body row justify-content-center mt-4 mx-auto">
@@ -46,7 +46,7 @@
                             <label for="email">{{ __('Favor de ingresar el correo electronico del oficial acargo') }}</label>
                             <div class="input-group mt-4">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Correo Electroniuco" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Correo Electronico" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group ">
                             <div class="mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg" style="background-color:#029395; width:400px;">
+                                <button type="submit" class="btn btn-primary btn-lg" style="background-color:#029395; width:100%;">
                                     {{ __('Enviar enlace para restablecer contraseña') }}
                                 </button>
                             </div>
