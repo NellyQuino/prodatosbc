@@ -36,7 +36,7 @@ class UserController extends Controller
     public function __construct()
     {
 
-        $this->middleware('EsAdmin')->except('evidencias_sujeto','evidencias_sujeto_eje','cargar_evidencia', 'pantalla_evidencia', 'eliminar_evidencia');
+        $this->middleware('EsAdmin')->except('evidencias_sujeto','evidencias_sujeto_eje','cargar_evidencia', 'pantalla_evidencia', 'eliminar_evidencia', 'user_pdf');
 
     }
     public function index(Request $request)

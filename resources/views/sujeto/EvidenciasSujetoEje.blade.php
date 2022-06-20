@@ -13,18 +13,18 @@
                     <td style="width: 30%"><p>{{ $accion->name }}</p></td>
                     <td style="width: 5%"><p></p></td>
                     <td style="width: 5%"><p></p></td>
-                    <td style="width: 30%"><p></p></td>
+                    <td style="width: 30%"><p><a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $compromiso->user_id) }}"><i class="fa fa-file-text"></i></a></p></td>
                 </tr>
                 <tr style="background-color: #FFFFFF;">
-                    <td style="width: 10%"><p>Fecha de entrega</p></td>
-                    <td style="width: 30%"><p></p></td>
+                    <td style="width: 10%"><p>Archivo</p></td>
+                    <td style="width: 30%"><p>Fecha de entrega</p></td>
                     <td style="width: 5%"><p>Estado</p></td>
                     <td style="width: 5%"><p>Comentario</p></td>
                     <td style="width: 30%"><p></p></td>
                 </tr>
                 <tr>
-                    <td style="width: 10%"><p>{{$compromiso->archive}}</p></td>
-                    <td style="width: 30%">
+                    <td style="width: 15%"><p>
+                        {{$compromiso->archive}}
                         @if ((string)$compromiso->archive != "")
                             <form action="{{ route('evidencia.eliminar', ['user' => $usuario, 'eje' => $eje, 'id' => $compromiso->id]) }}" method="POST">
                                 @method('DELETE')
@@ -32,22 +32,23 @@
                                 <input type="image" src="{{url('images/Trash.png')}}" alt="" value="{{ $compromiso->id }}" id="Objeto" onclick="return confirm('Seguro de eliminar esta evidencia? {{$compromiso->id}}')">
                             </form>
                         @endif
+                    </p></td>
+                    <td style="width: 15%;">
+                        {{$compromiso->date_delivery}}
                     </td>
-                    <td style="width: 5%">
+                    <td style="width: 10%">
                         @if ($compromiso->detail == NULL && $compromiso->state == 0)
                             <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
                         @elseif ($compromiso->detail == NULL && $compromiso->state == 1)
                             <p><img src="{{url('images/Icon_estado0.png')}}" alt=""></p>
-                        @elseif ($compromiso->detail == "Incompleto" && $compromiso->state == 1)
+                        @elseif ($compromiso->detail == "No cumplido" && $compromiso->state == 1)
                             <p><img src="{{url('images/Icon_estado2.png')}}" alt=""></p>
-                        @elseif ($compromiso->detail == "Fuera de Tiempo" && $compromiso->state == 1)
-                            <p><img src="{{url('images/Icon_estado3.png')}}" alt=""></p>
-                        @elseif ($compromiso->detail == "Aceptado" && $compromiso->state == '1')
+                        @elseif ($compromiso->detail == "Cumplido" && $compromiso->state == '1')
                             <p><img src="{{url('images/Icon_estado1.png')}}" alt=""></p>
                         @endif
                     </td>
-                    <td style="width: 5%"><p>{{$compromiso->comment}}</p></td>
-                    <td style="width: 30%"><p></p></td>
+                    <td style="width: 30%"><p>{{$compromiso->comment}}</p></td>
+                    <td style="width: 0%"><p></p></td>
                 </tr>
             </table>
         </div>
