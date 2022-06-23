@@ -10,11 +10,11 @@
             <div class="text-left col ms-2">
                 <label style="font-size:25px; font-family:inter; font-weight: bold;" for="">Sujeto Obligado: {{ Auth::user()->username}}</label>
             </div>
-            <div class="text-right col-sm-2">
+            <!-- <div class="text-right col-sm-2">
             <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="tooltip" title="Subir marca de agua" data-bs-target="#modal-marcas-agua" style="background: #059B97;"><i class="fa fa-file-image-o"></i>
                 Marcas de agua
             </button>
-            </div>
+            </div> -->
             <div class="text-right col-sm-2 ">
                 <a type="button" class="btn btn-primary" style="background: #059B97;" href="{{ route('compromiso.create') }}"><i class="fas fa-plus"></i>
                     Agregar compromiso</a>
