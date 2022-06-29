@@ -80,6 +80,14 @@ Route::post('panel-seguimiento/{user}/{eje}',  'UserController@seguimiento_eje')
 Route::post('panel-seguimiento/{user}/{eje}/{compromiso}',  'UserController@seguimiento_eje_accion')->name('sujeto.seguimiento.eje.accion')->middleware('EsAdmin');
 Route::post('descargar/{id}','UserController@descargar_archivo')->name('descargar_archivo')->middleware('EsAdmin');
 
+//------------------------>ADMINISTRADOR->FASES<----------------------------------------------------
+
+Route::get('/faces', 'FasesController@index')->name('fases.index')->middleware('EsAdmin');
+
+//------------------------>ADMINISTRADOR->AVISOS<----------------------------------------------------
+
+Route::get('/avisos', 'AvisosController@index')->name('avisos.index')->middleware('EsAdmin');
+
 //------------------------>ADMINISTRADOR->REPORTES<----------------------------------------------------
 
 Route::get('/reportes', 'ReportsController@index')->name('reportes.index')->middleware('EsAdmin');
@@ -101,6 +109,8 @@ Route::get('/compromisos/nuevo_compromiso', 'CompromisoController@create')->name
 Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name('compromiso.store')->middleware('esSujeto');
 Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update')->middleware('esSujeto');
 Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy')->middleware('esSujeto');
+//---------------------->Linea del tiempo y avisos-------------------------------
+Route::get('/Inicio', 'InicioController@index')->name('inicio.index')->middleware('esSujeto');
 //---------------------->EVIDENCIAS-------------------------------
 // }); //middleware PreventBackHistory
 //----------------------------------------------------------------------------------------------------------------

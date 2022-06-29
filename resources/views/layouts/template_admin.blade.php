@@ -129,9 +129,19 @@
                             <a href="{{ route('reportes.index') }}" class="nav-new"> 
                                 <span> <i class="fa fa-file-text-o"></i>Reportes </span>
                             </a>
-                            
-                        
                         </li> -->
+                        <li  class="" >
+                            
+                            <a href="{{ route('fases.index') }}" class="nav-new"> 
+                                <span> <i class="fa fa-cog"></i>Fases</span>
+                            </a>
+                        </li>
+                        <li  class="" >
+                            
+                            <a href="{{ route('avisos.index') }}" class="nav-new"> 
+                                <span> <i class="fa fa-bell"></i>Avisos</span>
+                            </a>
+                        </li>
                     </ul>
                     <!-- <a href="{{ route('user.index') }}">
                         <span><i class="fas fa-users"></i>Alta SO</span>

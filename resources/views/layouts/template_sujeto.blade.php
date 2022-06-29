@@ -115,6 +115,11 @@
                 </div>
                 <div class="sidebar-content mt-3">
                     <ul class="navbar-nav" style="display: flex;">
+                        <li  class="" >
+                            <a href="{{ route('inicio.index') }}" class="nav-new"> 
+                                <span> <i class="fa fa-home"></i>Inicio</span>
+                            </a>
+                        </li>
                         <li class=" {{ setActive('compromiso.index') }} {{ setActive('compromiso.create') }}">
                             <a href="{{ route('compromiso.index') }}" class="nav-new">
                             <span><i class="far fa-file-alt"></i>R. Compromisos</span>
