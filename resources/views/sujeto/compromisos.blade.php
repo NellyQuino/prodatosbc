@@ -33,11 +33,11 @@
 
                     <thead>
                         <tr>
-                            <th>Numero del eje</th>
+                            <th>Número del eje</th>
                             <th>Nombre del eje</th>
-                            <th>Problematica</th>
+                            <th>Problemática</th>
                             <th>Estrategia</th>
-                            <th>Accion</th>
+                            <th>Acción</th>
                             <th>Descripción de la actividad</th>
                             <th>Opciones</th>
                         </tr>

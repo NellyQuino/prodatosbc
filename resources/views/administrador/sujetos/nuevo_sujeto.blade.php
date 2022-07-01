@@ -61,8 +61,8 @@
                             @enderror
                         </div>
                         <div  class="mt-2">
-                            <label for="email"  class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Correo electónico </label>
-                            <input name="email" type="email" id="email"  class="form-control  @error('email') is-invalid @enderror"  placeholder="Correo electónico del sujeto obligado" value="{{ old('email') }}" required>
+                            <label for="email"  class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Correo electrónico </label>
+                            <input name="email" type="email" id="email"  class="form-control  @error('email') is-invalid @enderror"  placeholder="Correo electrónico del sujeto obligado" value="{{ old('email') }}" required>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

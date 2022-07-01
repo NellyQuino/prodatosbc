@@ -23,9 +23,9 @@
                 @csrf
                 <select name="campox" id="">
                     <option value="Todo">Todo</option>
-                    <option value="Sin Revision">Sin Revision</option>
-                    <option value="Incompleto">Incompleto</option>
-                    <option value="Aceptado">Aceptado</option>
+                    <option value="Sin Revision">Sin Revisión</option>
+                    <option value="No cumplido">No cumplido</option>
+                    <option value="Cumplido">Cumplido</option>
                 </select>
                 <input type="submit" value="Buscar" class="EvidenciaCapsula"> <br><br>
             </form>
@@ -36,7 +36,7 @@
             <table class="ListaSujeto" cellspacing="0" cellpadding="0"  width="100%" >
                 <tr style="background-color: #FFFFFF;">
                     <td style="width: 15%">
-                        <p>Accion</p>
+                        <p>Acción</p>
                     </td>
                     <td style="width: 10%">
                         <p></p>
@@ -45,7 +45,7 @@
                         <p>Actividad a Desarrollar</p>
                     </td>
                     <td style="width: 25%">
-                        <p>Fecha Implementacion</p>
+                        <p>Fecha Implementación</p>
                     </td>
                     <td style="width: 10%">
                         <p>Estado</p>

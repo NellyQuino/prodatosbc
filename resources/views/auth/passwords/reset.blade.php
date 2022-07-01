@@ -45,7 +45,7 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="row mb-3">
-                            <label for="email">{{ __('Correo Electronico') }}</label>
+                            <label for="email">{{ __('Correo Electrónico') }}</label>
 
                             <div class="input-group mt-4">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>

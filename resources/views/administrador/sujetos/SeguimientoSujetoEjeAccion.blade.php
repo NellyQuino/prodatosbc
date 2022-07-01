@@ -93,7 +93,7 @@
                 </td>
                 <td style="width: 40%">
                     @if ($compromiso->detail == NULL && $compromiso->state == 1)
-                        <p>Sin Revision</p>
+                        <p>Sin Revisión</p>
                     @else
                         <p>{{ $compromiso->detail }} </p>
                     @endif

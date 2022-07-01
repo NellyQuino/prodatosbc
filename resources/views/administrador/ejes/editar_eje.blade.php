@@ -15,8 +15,8 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="mt-2">
-                            <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Numero del eje</label>
-                            <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Numero del eje"  required value="{{ old('number', $eje->number) }}"></input>
+                            <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Número del eje</label>
+                            <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Número del eje"  required value="{{ old('number', $eje->number) }}"></input>
                             @error('number')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="mt-3">
                             <label for="description"  class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Descripción</label>
-                            <textarea name="description" id="eje_description"  type="text"  class="form-control @error('description') is-invalid @enderror" cols="30" rows="10" required >{{ old('description', $eje->description) }}</textarea>
+                            <textarea name="description" id="eje_description"  type="text"  placeholder="Descripción del eje" class="form-control @error('description') is-invalid @enderror" cols="30" rows="10" required >{{ old('description', $eje->description) }}</textarea>
                             @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

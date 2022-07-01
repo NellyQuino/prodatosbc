@@ -9,7 +9,7 @@
         <div style="margin:20px;">
             <table class="ListaSujeto" cellspacing="0" cellpadding="0"  width="100%">
                 <tr style="background-color: #FFFFFF;">
-                    <td style="width: 10%"><p>Accion</p></td>
+                    <td style="width: 10%"><p>Acción</p></td>
                     <td style="width: 30%"><p>{{ $accion->name }}</p></td>
                     <td style="width: 5%"><p></p></td>
                     <td style="width: 5%"><p></p></td>
@@ -29,7 +29,7 @@
                             <form action="{{ route('evidencia.eliminar', ['user' => $usuario, 'eje' => $eje, 'id' => $compromiso->id]) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <input type="image" src="{{url('images/Trash.png')}}" alt="" value="{{ $compromiso->id }}" id="Objeto" onclick="return confirm('Seguro de eliminar esta evidencia? {{$compromiso->id}}')">
+                                <input type="image" src="{{url('images/Trash.png')}}" alt="" value="{{ $compromiso->id }}" id="Objeto" onclick="return confirm('Seguro de eliminar esta evidencia? {{$compromiso->archive}}')">
                             </form>
                         @endif
                     </p></td>

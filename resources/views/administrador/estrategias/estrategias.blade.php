@@ -29,7 +29,7 @@
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
-                    <th>Numero del eje</th>
+                    <th>Número del eje</th>
                     <th>Nombre del eje</th>
                     <th>Problemática</th>
                     <th>Línea estratégica</th>
@@ -48,7 +48,7 @@
                     <td style="width:40%;" class="align-top"> {{ $estrategia-> problematica-> number}} {{ $estrategia-> problematica->name}}</td>
                     <td style="width:30%;" class="align-top">{{ $estrategia->number }} {{ $estrategia->name }}</td>
                     <td style="width:5%;">
-                        <a type="button" class="btn btn-primary" style="background: #059B97;"  href="{{ route('estrategia.edit', $estrategia->id) }}"> <i class="fas fa-edit"></i></a>
+                        <a type="button" class="btn btn-primary" style="background: #059B97;" data-toggle="tooltip" title="Editar" href="{{ route('estrategia.edit', $estrategia->id) }}"> <i class="fas fa-edit"></i></a>
                     </td>
                     <td style="width:5%;">
                     @php

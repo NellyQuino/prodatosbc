@@ -25,8 +25,8 @@
             <div class="modal-body">
                 <div class="form-group">
                     <div class="mt-2">
-                        <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Numero de la Estrategia</label>
-                        <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Numero de la Estrategia"  required value="{{ old('number', $estrategia->number) }}"></input>
+                        <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Número de la Estrategia</label>
+                        <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Número de la Estrategia"  required value="{{ old('number', $estrategia->number) }}"></input>
                         @error('number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -43,10 +43,10 @@
                         @enderror
                     </div>
                     <div class="mt-2">
-                        <label for="problematica_id" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"">Problematica </label>
+                        <label for="problematica_id" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"">Problemática </label>
                             <div>
                             <select name="problematica_id" id="problematica_id" class="form-control @error('problematica_id') is-invalid @enderror" aria-label="Default select example" required>
-                            <option value="">-- Elige una Problematica --</option>
+                            <option value="">-- Elige una Problemática --</option>
                             @foreach ($problematicas as $problematica)
                             <option value="{{$problematica -> id}}" {{$problematica ->id == $estrategia -> problematica_id ? 'selected' : '' }}>{{ $problematica -> name }}</option>
                             @endforeach

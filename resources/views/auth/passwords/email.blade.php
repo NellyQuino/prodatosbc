@@ -43,10 +43,10 @@
                         @csrf
 
                         <div class="input-group mt-4 text-center" >
-                            <label for="email">{{ __('Favor de ingresar el correo electronico del oficial a cargo') }}</label>
+                            <label for="email">{{ __('Favor de ingresar el correo electrónico del oficial a cargo') }}</label>
                             <div class="input-group mt-4">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Correo Electronico" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Correo Electrónico" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

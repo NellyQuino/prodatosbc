@@ -13,14 +13,9 @@
         </div>
     </div>
     <div class="SeguimientoAcomodo, SeguimientoCentrado">
-        @php 
-        $boton = 0
-        @endphp
+        
         @foreach ($ejes as $eje)
-            @php 
-            $boton += 1
-            @endphp
-            
+        
             @if ($eje->state== 1)
                 <form action="{{ route('sujeto.seguimiento.eje', ['user' => $usuario, 'eje' => $eje]) }}" method="POST">
                     @csrf
@@ -28,12 +23,12 @@
                     <input type="hidden" name="datapack" value="normal">
                     <input type="hidden" name="{{ $usuario }}" value = "{{ $usuario }}">
                     @if (empty($supereje))
-                        <input type="submit" value="Eje {{ $boton }}" class="SeguimientoBoton" name="Eje {{ $boton }}">
+                        <input type="submit" value="Eje {{ $eje->number }}" class="SeguimientoBoton" name="Eje {{ $eje->number }}">
                     @else
-                        @if ($supereje->Id == $boton)
-                            <input type="button" value="Eje {{ $boton }}" class="SeguimientoBotonSeleccionado" name="Eje {{ $boton }}">
+                        @if ($supereje->Id == $eje->number)
+                            <input type="button" value="Eje {{ $eje->number }}" class="SeguimientoBotonSeleccionado" name="Eje {{ $eje->number }}">
                         @else
-                            <input type="submit" value="Eje {{ $boton }}" class="SeguimientoBoton" name="Eje {{ $boton }}">
+                            <input type="submit" value="Eje {{ $eje->number }}" class="SeguimientoBoton" name="Eje {{ $eje->number }}">
                         @endif
                     @endif
                 </form>
@@ -54,7 +49,7 @@
                         <p class="SeguimientoTextual">Objetivo</p>
                     </div>
                     <div class="SeguimientoBordeado2">
-                        <p class="SeguimientoTextual">Descripcion del eje seleccionado</p>
+                        <p class="SeguimientoTextual">Descripción del eje seleccionado</p>
                     </div>
                 </div>
             </div>

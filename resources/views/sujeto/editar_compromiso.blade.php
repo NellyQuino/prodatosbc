@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label for="accion_id" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;">Acción</label>
                             <select name="accion_id" id="accion_id" class="form-select" aria-label="Default select example" disabled>
-                                <option >--  Elige una accion --</option>
+                                <option >--  Elige una acción --</option>
                                 @foreach ($acciones as $accion)
                                 <option  value="{{$accion -> id}}" {{$accion ->id == $compromiso -> accion_id ? 'selected' : '' }}>{{ $accion -> name }}</option>
                                 @endforeach
@@ -29,7 +29,7 @@
                             </select>
                         </div>
                         <div>
-                            <label for="action_plan">Plan de accion</label>
+                            <label for="action_plan">Plan de acción</label>
                             <textarea  name="action_plan" id="action_plan"  class="form-control @error('action_plan') is-invalid @enderror" type="text" rows="8" >{{$compromiso->action_plan}}</textarea>
                             @error('action_plan')
                             <span class="invalid-feedback" role="alert">

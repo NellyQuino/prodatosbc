@@ -24,7 +24,7 @@
                    <a  class="nav-link" style="font-size:150%;font-family:inter; color: white"  href="{{ route('ejes.index') }}">Ejes</a>
                 </li>
                 <li  class=" {{ setActive('problematicas.index') }} " >
-                   <a  class="nav-link" style="font-size:150%;font-family:inter; color: white"  href="{{ route('problematicas.index') }}">Problematicas</a>
+                   <a  class="nav-link" style="font-size:150%;font-family:inter; color: white"  href="{{ route('problematicas.index') }}">Problemáticas</a>
                 </li>
                 <li  class="{{ setActive('estrategias.index') }} ">
                     <a  class="nav-link"  style="font-size:150%;font-family:inter; color: white"  href="{{ route('estrategias.index') }}">Estrategias</a>

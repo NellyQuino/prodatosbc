@@ -47,7 +47,7 @@
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
-                    <th style="width:20%;">Numero del Eje</th>
+                    <th style="width:20%;">Número del Eje</th>
                     <th style="width:20%;">Nombre del Eje</th>
                     <th style="width:70%;">Objetivo</th>
                     <th>Opciones</th>
@@ -64,7 +64,7 @@
                     <td>{{ $eje->name }}</td>
                     <td class="align-top"> {{ $eje->description}}</td>
                     <td style="width:5%;">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-editar-eje-{{ $eje->id }}" style="background: #059B97;"> <i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Editar" data-bs-toggle="modal" data-bs-target="#modal-editar-eje-{{ $eje->id }}" style="background: #059B97;"> <i class="fas fa-edit"></i></button>
                     </td>
                     <td style="width:5%;">
                         @php

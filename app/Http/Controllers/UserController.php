@@ -196,7 +196,7 @@ class UserController extends Controller
 
     }
     public function seguimiento(User $user) {
-        $ejes = Eje::all();
+        $ejes = Eje::orderBy('number','asc')->get();
         $datos_eje = NULL;
         $plantilla = "Seguimiento Sujeto";
         return view('administrador.sujetos.SeguimientoSujeto', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'supereje' => $datos_eje, 'archivos' => NULL], compact('user'));
@@ -290,7 +290,7 @@ class UserController extends Controller
     //Muestra los archivos relacionados con las acciones que a su vez que relacionan con las estrategias y estas con los ejes
     public function seguimiento_eje(Request $request, User $user, Eje $eje) {
         $usuario = $user->id;
-        $ejes = Eje::All();
+        $ejes = Eje::orderBy('number','asc')->get();
         $problematicas = Problematica::where('eje_id', $eje->id)->get();
         $estrategias = Estrategia::all();
         $acciones = Accion::all();
@@ -393,7 +393,7 @@ class UserController extends Controller
     }
 
     public function evidencias_sujeto(){
-        $ejes = Eje::all();
+        $ejes = Eje::orderBy('number','asc')->get();
         $user = Auth::user()->id;
         $plantilla = "Evidencias Sujeto";
         return view('sujeto.EvidenciasSujeto', ['usuario' => $user, 'plantilla' => $plantilla, 'ejes' => $ejes, 'acciones' => NULL, 'archivos' => NULL]);
@@ -430,7 +430,7 @@ class UserController extends Controller
     public function evidencias_sujeto_eje(Eje $eje){
         // $user = User::where('id', $id)->first();
         $user = Auth::user()->id;
-        $ejes = Eje::all();
+        $ejes = Eje::orderBy('number','asc')->get();
         $problematicas = Problematica::where('eje_id', $eje->id)->get();
         $estrategias = Estrategia::all();
         $acciones = Accion::all();

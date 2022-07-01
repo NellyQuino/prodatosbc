@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card">
-    <h5 class="card-title text-center" style="color: #848483 ;font-size:200%;font-family:inter;">Modificar Problematica</h5>
+    <h5 class="card-title text-center" style="color: #848483 ;font-size:200%;font-family:inter;">Modificar Problemática</h5>
     <div class="card-body">
         @include('alertas.alerta')
         @if ($errors->any())
@@ -25,8 +25,8 @@
             <div class="modal-body">
                 <div class="form-group">
                     <div class="mt-2">
-                        <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Numero de la problematica</label>
-                        <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Numero de la Problematica"  required value="{{ old('number', $problematica->number) }}"></input>
+                        <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Número de la problemática</label>
+                        <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Número de la Problemática"  required value="{{ old('number', $problematica->number) }}"></input>
                         @error('number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="mt-2">
                         <label for="name" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Nombre</label>
-                        <textarea type="text" name="name" cols="20" rows="5" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nombre de la Problematica" required >{{ old('name', $problematica->name) }}</textarea>
+                        <textarea type="text" name="name" cols="20" rows="5" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nombre de la Problemática" required >{{ old('name', $problematica->name) }}</textarea>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

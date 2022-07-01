@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card">
-    <h5 class="card-title text-center" style="color: #848483 ;font-size:200%;font-family:inter;">Nueva Problematica </h5>
+    <h5 class="card-title text-center" style="color: #848483 ;font-size:200%;font-family:inter;">Nueva Problemática </h5>
     <div class="card-body">
         @include('alertas.alerta')
         @if ($errors->any())
@@ -24,8 +24,8 @@
             @csrf
             <div class="form-group">
                 <div class="mt-2">
-                    <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Numero de la Problematica</label>
-                    <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Numero de la Problematica" value="{{ old('number') }}"  required></input>
+                    <label for="number" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Número de la Problemática</label>
+                    <input type="text" name="number" class="form-control @error('number') is-invalid @enderror" id="number" placeholder="Número de la Problemática" value="{{ old('number') }}"  required></input>
                     @error('number')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="mt-2">
                     <label for="name" class="col-md-4 col-form-label" style="font-size:120%;font-family:inter;"> Nombre</label>
-                    <textarea type="text" name="name" cols="20" rows="5" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nombre de la Problematica" required>{{ old('name') }}</textarea>
+                    <textarea type="text" name="name" cols="20" rows="5" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nombre de la Problemática" required>{{ old('name') }}</textarea>
                     @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

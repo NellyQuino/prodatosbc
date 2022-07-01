@@ -3,11 +3,11 @@
 @section('panel_content')
 <div class="row justify-content-end mt-3">
     <div class="text-left col ms-2">
-        <label style="color: #848483 ;font-size:180%;font-family:inter;" for="">Problematicas registradas</label>
+        <label style="color: #848483 ;font-size:180%;font-family:inter;" for="">Problemáticas registradas</label>
     </div>
     <div class="text-right col-sm-2">
         <a type="button" class="btn btn-primary" style="background: #059B97; font-size: 15px"  href="{{ route('problematica.create') }}"><i class="fas fa-plus"></i>
-            Agregar Problematica
+            Agregar problemática
         </a>
     </div>
 </div>
@@ -29,7 +29,7 @@
         <table class="table table-striped table-bordered" id="myTable">
             <thead>
                 <tr>
-                    <th>Numero del eje</th>
+                    <th>Número del eje</th>
                     <th>Nombre del eje</th>
                     <th>Problemática</th>
                     <th>Opciones</th>
@@ -46,7 +46,7 @@
                     <td style="width:20%;" class="align-top"> {{ $problematica-> eje -> name}}</td>
                     <td style="width:40%;" class="align-top"> {{ $problematica-> number}} {{ $problematica->name}}</td>
                     <td style="width:5%;">
-                        <a type="button" class="btn btn-primary" style="background: #059B97;"  href="{{ route('problematica.edit', $problematica->id) }}"> <i class="fas fa-edit"></i></a>
+                        <a type="button" class="btn btn-primary" style="background: #059B97;" data-toggle="tooltip" title="Editar" href="{{ route('problematica.edit', $problematica->id) }}"> <i class="fas fa-edit"></i></a>
                     </td>
                     <td style="width:5%;">
                     @php
