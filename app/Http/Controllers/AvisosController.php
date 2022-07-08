@@ -9,7 +9,8 @@ class AvisosController extends Controller
 {
     public function index()
     {
-        return view('administrador.avisos.index');
+        $avisos = Aviso::orderBy('id','desc')->paginate(8);
+        return view('administrador.avisos.index', ['avisos'=> $avisos]);
     }
 
     public function crear_aviso(Request $request)
@@ -33,4 +34,5 @@ class AvisosController extends Controller
         ]);
         return back()->with('status', 'Creado con éxito');
     }
+
 }
