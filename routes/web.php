@@ -87,6 +87,7 @@ Route::get('/faces', 'FasesController@index')->name('fases.index')->middleware('
 //------------------------>ADMINISTRADOR->AVISOS<----------------------------------------------------
 
 Route::get('/avisos', 'AvisosController@index')->name('avisos.index')->middleware('EsAdmin');
+Route::post('/avisos/crear-aviso', 'AvisosController@crear_aviso')->name('nuevo.aviso')->middleware('EsAdmin');
 
 //------------------------>ADMINISTRADOR->REPORTES<----------------------------------------------------
 
