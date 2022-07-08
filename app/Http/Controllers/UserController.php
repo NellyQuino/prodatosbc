@@ -524,6 +524,8 @@ class UserController extends Controller
         $compromiso->detail = NULL;
         $compromiso->archive = NULL;
         $compromiso->comment = NULL;
+        $compromiso->date_delivery = NULL;
+        $compromiso->date_implementation = NULL;
         $compromiso->save();
 
 
@@ -555,19 +557,18 @@ class UserController extends Controller
 
     public function user_pdf($id)
     {
-
-        $user = User::where('id', $id)->first();
-        $logo = Logo::where('user_id', $id)->first();
+        $compromiso = Compromiso::where('id', $id)->first(); 
+        $user = User::where('id', $compromiso->user_id)->first();
         $logoa = Logo::where('user_id', 1)->first();
-        $ejes = Eje::all();
-        $problematicas = Problematica::all();
-        $estrategias = Estrategia::all();
-        $acciones = Accion::all();
+        $eje = Eje::where('id',$compromiso->accion->estrategia->problematica->eje_id)->first();
+        $problematica = Problematica::where('id',$compromiso->accion->estrategia->problematica_id)->first();
+        $estrategia = Estrategia::where('id',$compromiso->accion->estrategia_id)->first();
+        $accion = Accion::where('id',$compromiso->accion_id)->first();
         
         // $compromiso = Compromiso::where('user_id', $id)->first();
-        $compromisos = Compromiso::where('user_id', $id)->get(); //si falla poner paginate();
+        
 
-        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user,'logo'=>$logo, 'logoa'=>$logoa, 'compromisos'=>$compromisos, 'ejes'=>$ejes, 'estrategias'=>$estrategias, 'acciones'=>$acciones, 'problematicas'=>$problematicas]);
+        $pdf = PDF::loadView('administrador.sujetos.pdf', ['user'=>$user, 'logoa'=>$logoa, 'compromiso'=>$compromiso, 'eje'=>$eje, 'estrategia'=>$estrategia, 'accion'=>$accion, 'problematica'=>$problematica]);
         // $pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
         // return view('administrador.sujetos.pdf', compact('user','compromisos'));

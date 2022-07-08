@@ -26,149 +26,46 @@ th{
   
   <body>
     <header>
-      <div class="container2">
-      @if($logo != null)
-        <img src="{{ storage_path('/app/public/logos/' . $logo->image) }}" style="width: 300px; height: 150px;">
-      @endif
-      </div>
       <div class="container">
       @if($logoa != null)
       <img src="{{ storage_path('/app/public/logos/' . $logoa->image) }}" style="width: 300px; height: 150px;">
       @endif
-      <!-- <h1>Reporte de {{$user->username}}</h1> -->
+     
       </div>
 
     </header>
     
     <footer></footer>
     
-    <!-- <img src="{{ asset('/images/logo_PRODATOS.fw.png') }}"> -->
-    <!-- <table style="width=100%">
-      <tbody>
-        <tr>
-          <td><h1>Reporte de {{$user->username}}</h1></td>
-          <td><img src="{{ public_path('Logo3.png') }}" style="width: 400px; height: 200px"></td>
-        </tr>
-      </tbody>
-    </table> -->
+  
     @php 
         $date = date('d-m-Y');
     @endphp 
-    <h3 style="text-align: right">Fecha del reporte: {{$date}}</h3>
+    <h3 style="text-align: center; margin-top:-12px">Acuse de carga</h3>
+    <h3 style="text-align: right; font-size:17px">Fecha del reporte: {{$date}}</h3>
     <table style="width:100%">
   <tr>
-    <th>No.	</th>
+
     <th style="width:75%">Nombre del sujeto obligado:	</th>
     <th>ID</th>
   </tr>
   <tr>
-    <td>1000</td>
+    
     <td>{{$user->username}}</td>
     <td>{{$user->number_user}}</td>
   </tr>
   </table>
   <br> 
-  <table style="width:100%">
-  <tr>
-    <th style="width:65%">Nombre del oficial de protección de datos personales:	</th>
-    <th>Correo electrónico: </th>
-  </tr>
-  <tr>
-    <td>{{$user->name}}</td>
-    <td>{{$user->email}}</td>
-  </tr>
-    </table>
 
-    <p>Resumen de compromisos adquiridos:</p>
-    <!-- <table style="width:100%">
-    @foreach ($compromisos as $compromiso)
-        <tr>
-          <td id="titulo">Compromisos: </td>
-          <td id="subtitulo">{{$compromiso->action_plan}}</td>
-        </tr>
-        <tr>
-          <td id="titulo">Fecha: </td>
-          <td id="subtitulo">{{$compromiso->created_at}}</td>
-        </tr>
-        <tr>
-          <td id="titulo">Status: </td>
-          <td id="subtitulo">{{$compromiso->detail}}</td>
-          
-        </tr>   
-        @if($loop->iteration % 8 == 0)
-        <p style="page-break-before: always;"></p>
-        @endif
-      @endforeach
-    </table> -->
+    <p style="text-align:center">Tipo de movimiento: (implementación, ABC, seguimiento)</p>
+
+    <p>Fecha de carga: {{$compromiso->date_delivery}}</p>
     
-    <table style="width:100%">
-  <tr>
-    <th>Ejes</th>
-    <td style="width:7%">Cant.</td>
-    <th>Problemáticas</th>
-    <td style="width:7%">Cant.</td>
-    <th>Estrategias</th>
-    <td style="width:7%">Cant.</td>
-    <th>Acciones</th>
-    <td style="width:7%">Cant.</td>
-  </tr>
-  @php 
-        $total = count($compromisos);
-    @endphp 
-  @foreach ($compromisos as $compromiso)
-  @foreach ($acciones as $accion)
-  @foreach ($estrategias as $estrategia)
-  @foreach ($problematicas as $problematica)
-  @foreach ($ejes as $eje)
-  @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->problematica_id == $problematica ->id && $problematica-> eje_id == $eje->id)
-  <tr>
-    <td>{{$eje->number}}</td>
-    <td>1</td>
-    <td>{{$problematica->number}}</td>
-    <td>1</td>
-    <td>{{$estrategia->number}}</td>
-    <td>1</td>
-    <td>{{$accion->number}}</td>
-    <td>1</td>
-  </tr>
-  @endif
-  @endforeach
-  @endforeach
-  @endforeach
-  @endforeach
-  @endforeach
-<!-- <tr>
-<td colspan="2">Eje</td>
-    <td colspan="2">Estrategia</td>
-    <td colspan="2">Línea de acción</td>
-</tr>
-<tr>
-<td colspan="2">Eje</td>
-    <td colspan="2">Estrategia</td>
-    <td colspan="2">Línea de acción</td>
-</tr> -->
-  <tr>
-    <th>Total</th>
-    <td>{{$total}}</td>
-    <th>Total</th>
-    <td>{{$total}}</td>
-    <th>Total</th>
-    <td>{{$total}}</td>
-    <th>Total</th>
-    <td>{{$total}}</td>
-  </tr>
-    </table>
-
   <br>
 
   <p>Desglose:</p>
 
-    @foreach ($compromisos as $compromiso)
-    @foreach ($acciones as $accion)
-    @foreach ($estrategias as $estrategia)
-    @foreach ($problematicas as $problematica)
-    @foreach ($ejes as $eje)
-    @if ($compromiso->accion_id == $accion->id && $accion->estrategia_id == $estrategia->id && $estrategia->problematica_id == $problematica ->id && $problematica-> eje_id == $eje->id)
+    
     <table style="width:100%">
     
   <tr>
@@ -211,11 +108,6 @@ th{
 </tr>
     </table>
     <br>
-    @endif
-    @endforeach
-    @endforeach
-    @endforeach
-    @endforeach
-    @endforeach
+    
   </body>
 </html>

@@ -13,7 +13,7 @@
                     <td style="width: 30%"><p>{{ $accion->name }}</p></td>
                     <td style="width: 5%"><p></p></td>
                     <td style="width: 5%"><p></p></td>
-                    <td style="width: 30%"><p><a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $compromiso->user_id) }}"><i class="fa fa-file-text"></i></a></p></td>
+                    <td style="width: 30%"><p><a type="button" data-toggle="tooltip" title="Generar PDF" class="btn btn-primary" style="background: #059B97;"  href="{{ route('sujeto.seguimiento.pdf', $compromiso->id) }}"><i class="fa fa-file-text"></i></a></p></td>
                 </tr>
                 <tr style="background-color: #FFFFFF;">
                     <td style="width: 10%"><p>Archivo</p></td>
