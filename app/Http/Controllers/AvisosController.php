@@ -35,4 +35,34 @@ class AvisosController extends Controller
         return back()->with('status', 'Creado con éxito');
     }
 
+    public function delete_aviso(Request $request, $aviso_id)
+    {
+        $aviso = Aviso::find($aviso_id);//Encuentra el dato con el id
+        $aviso->delete();
+        return back()->with('status_delete', 'Eliminado con éxito');
+
+    }
+
+    public function update(Request $request, Aviso $aviso)
+    {
+        $request->validate([
+
+            'titulo' => ['required', 'string'],
+            'descripcion' => ['required', 'string'],
+            'importancia' => ['required', 'string'],
+        ],[
+            'titulo.required' => 'El campo descripción de la actividad es obligatorio.',
+            'descripcion.required' => 'El campo descripción de la actividad es obligatorio.',
+            'importancia.required' => 'El campo descripción de la actividad es obligatorio.'
+        ]);
+        $aviso->update([
+            'titulo' => request('titulo'),
+            'descripcion' => request('descripcion'),
+            'importancia' => request('importancia'),
+ 
+         ]);
+         return  back()->with('status_update', 'Actualizado con éxito');
+
+    }
+
 }

@@ -69,6 +69,12 @@
                     <td style="width:25%;" class="align-top">
                         <p>{{$aviso->importancia}}</p>
                     </td>
+                    <td>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-toggle="tooltip" title="Editar sujeto aviso" data-bs-target="#modal-update-aviso-{{ $aviso->id }}" style="background: #BD3284; color:white;"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-toggle="tooltip" title="Eliminar" data-bs-target="#modal-delete-aviso-{{ $aviso->id }}" ><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                    @include('administrador.avisos.aviso_update')
+                    @include('administrador.avisos.aviso_delete')
                 </tr>
                 @endforeach
             @endif

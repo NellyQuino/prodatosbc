@@ -87,14 +87,15 @@ Route::get('/faces', 'FasesController@index')->name('fases.index')->middleware('
 //------------------------>ADMINISTRADOR->AVISOS<----------------------------------------------------
 
 Route::get('/avisos', 'AvisosController@index')->name('avisos.index')->middleware('EsAdmin');
-Route::post('/avisos/crear-aviso', 'AvisosController@crear_aviso')->name('nuevo.aviso')->middleware('EsAdmin');
-
+Route::post('/avisos/crear_aviso', 'AvisosController@crear_aviso')->name('nuevo.aviso')->middleware('EsAdmin');
+Route::delete('/avisos/eliminar_aviso/{aviso_id}', 'AvisosController@delete_aviso')->name('delete.aviso')->middleware('EsAdmin');
+Route::put('/avisos/editar_aviso/{aviso}','AvisosController@update')->name('aviso.update')->middleware('EsAdmin');
 //------------------------>ADMINISTRADOR->REPORTES<----------------------------------------------------
 
 Route::get('/reportes', 'ReportsController@index')->name('reportes.index')->middleware('EsAdmin');
-Route::get('reportes-pdf/{user}', 'UserController@user_pdf')->name('sujeto.seguimiento.pdf')->middleware('esSujeto');
-Route::post('reportes-pdf/marcas-de-agua', 'ReportsController@store')->name('reportes.marcas.store')->middleware('EsAdmin');
-Route::post('reportes-pdf/marcas-de-agua-sujeto', 'ReportsController@store2')->name('reportes.marcas.store2')->middleware('esSujeto');
+Route::get('reportes_pdf/{user}', 'UserController@user_pdf')->name('sujeto.seguimiento.pdf')->middleware('esSujeto');
+Route::post('reportes_pdf/marcas_de_agua', 'ReportsController@store')->name('reportes.marcas.store')->middleware('EsAdmin');
+Route::post('reportes_pdf/marcas_de_agua_sujeto', 'ReportsController@store2')->name('reportes.marcas.store2')->middleware('esSujeto');
 
 //-------------------------->SUJETO<----------------------------------}
 Route::get('panel-evidencias','UserController@evidencias_sujeto')->name('evidencia')->middleware('esSujeto');
