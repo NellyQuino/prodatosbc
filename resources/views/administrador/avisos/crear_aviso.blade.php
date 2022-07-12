@@ -35,9 +35,9 @@
                         <div  class="mt-2">
                             <label for="importancia"  class="" style="font-size:120%;font-family:inter;">Importancia</label>
                             <select name="importancia" id="importancia">
-                                <option value="success">Importante</option>
-                                <option value="danger">Medianamente importante</option>
-                                <option value="warning">Muy importante</option>
+                                <option value="success">Verde</option>
+                                <option value="warning">Amarillo</option>
+                                <option value="danger">Rojo</option>
                             </select>
                             @error('importancia')
                             <span class="invalid-feedback" role="alert">

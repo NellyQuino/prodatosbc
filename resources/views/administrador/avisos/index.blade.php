@@ -67,7 +67,13 @@
                     </td>
 
                     <td style="width:25%;" class="align-top">
-                        <p>{{$aviso->importancia}}</p>
+                        @if($aviso->importancia == "success")
+                            <p>Verde</p>
+                        @elseif($aviso->importancia == "warning")
+                            <p>Amarillo</p>
+                        @elseif($aviso->importancia == "danger")
+                            <p>Rojo</p>
+                        @endif
                     </td>
                     <td>
                     <button type="button" class="btn" data-bs-toggle="modal" data-toggle="tooltip" title="Editar sujeto aviso" data-bs-target="#modal-update-aviso-{{ $aviso->id }}" style="background: #BD3284; color:white;"><i class="fas fa-edit"></i></button>
