@@ -42,6 +42,22 @@ class CompromisoController extends Controller
         return view('sujeto.compromisos', compact('problematicas', 'compromisos', 'user','ejes', 'acciones', 'estrategias'));
     }
 
+    public function indexi()
+    {
+       
+        $user  = Auth::user()->id;
+        $estrategias = Estrategia::all();
+        $problematicas = Problematica::all();
+        $ejes = Eje::all();
+        $acciones = Accion::all();
+       // $data = User::where('slug', $user)->get();
+
+        $compromisos = Compromiso::where('user_id', Auth::user()->id)->orderBy('accion_id','asc')->paginate(8);
+        //dd(User::all());
+        //dd(Auth::user()->id, Compromiso::where('user_id', Auth::user()->id)->get());
+        return view('sujeto.compromisos_i', compact('problematicas', 'compromisos', 'user','ejes', 'acciones', 'estrategias'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

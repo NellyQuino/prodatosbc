@@ -107,6 +107,7 @@ Route::delete('panel-evidencias/{user}/{eje}/{id}','UserController@eliminar_evid
 //---------------------->COMPROMISOS,-------------------------------
 //Route::get('/home','UserController@index')->middleware('auth');
 Route::get('/compromisos', 'CompromisoController@index')->name('compromiso.index')->middleware('esSujeto');
+Route::get('/compromisosi', 'CompromisoController@indexi')->name('compromiso.indexi')->middleware('esSujeto');
 Route::get('/compromisos/nuevo_compromiso', 'CompromisoController@create')->name('compromiso.create')->middleware('esSujeto');
 Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name('compromiso.store')->middleware('esSujeto');
 Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update')->middleware('esSujeto');

@@ -1,0 +1,73 @@
+@extends('layouts.template_sujeto')
+
+@section('content')
+<div class="text-left col-md-5 mt-2">
+    <label style="color: #848483 ;font-size:200%;font-family:inter;" for="">R. Compromisos</label>
+</div>
+<div class="container-fluid">
+    <div class="form-group">
+        <div class="row  mt-3">
+            <div class="text-left col ms-2">
+                <label style="font-size:25px; font-family:inter; font-weight: bold;" for="">Sujeto Obligado: {{ Auth::user()->username}}</label>
+            </div>
+            <!-- <div class="text-right col-sm-2">
+            <button type=" button" class="btn btn-primary" data-bs-toggle="modal" data-toggle="tooltip" title="Subir marca de agua" data-bs-target="#modal-marcas-agua" style="background: #059B97;"><i class="fa fa-file-image-o"></i>
+                Marcas de agua
+            </button>
+            </div> -->
+            <div class="text-right col-sm-2 ">
+                <a type="button" class="btn btn-primary" style="background: #059B97;" href="{{ route('compromiso.create') }}"><i class="fas fa-plus"></i>
+                    Agregar compromiso</a>
+
+            </div>
+        </div>
+        @if($compromisos->count())
+        <div class="mt-3 row" style="background-color: white;">
+            <div class="text-left col ms-2">
+                <label style="color: #848483 ;font-size:180%;font-family:inter;" for="">Lista de compromisos</label>
+            </div>
+            <div class="col-sm-12 mt-3">
+                @include('alertas.alerta')
+
+                <table class="table table-striped table-bordered">
+
+                    <thead>
+                        <tr>
+                            <th>Número del eje</th>
+                            <th>Nombre del eje</th>
+                            <th>Problemática</th>
+                            <th>Estrategia</th>
+                            <th>Acción</th>
+                            <th>Descripción de la actividad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($compromisos as $compromiso)
+                        <tr>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica -> eje ->number}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica -> eje ->name}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia -> problematica ->number}} {{$compromiso -> accion -> estrategia -> problematica ->name}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion -> estrategia ->number}} {{$compromiso -> accion -> estrategia ->name}}</td>
+                            <td class="align-top" style="width:10%;">{{$compromiso -> accion ->number}} {{$compromiso -> accion ->name}}</td>
+                            <td class="align-top" style="width:60%;">{{$compromiso -> action_plan}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">{{$compromisos->links()}}</li>
+                    </ul>
+                </nav>
+
+                @else
+                <div class="mt-5 text-center">
+                    <label style="font-size:30px; font-family:inter; font-weight: bold;">No hay compromisos en la lista. De click al botón +Agregar compromisos</label>
+                </div>
+            </div>
+        </div>
+        @endif
+    </div>
+</div>
+@include('administrador.reportes.marcas_de_agua2')
+@endsection

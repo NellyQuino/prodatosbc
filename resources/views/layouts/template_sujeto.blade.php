@@ -120,14 +120,19 @@
                                 <span> <i class="fa fa-home"></i>Inicio</span>
                             </a>
                         </li>
+                        <li class=" {{ setActive('compromiso.indexi') }} {{ setActive('compromiso.create') }}">
+                            <a href="{{ route('compromiso.indexi') }}" class="nav-new">
+                            <span><i class="fas fa-file-medical"></i>Implementación</span>
+                            </a>
+                        </li>
                         <li class=" {{ setActive('compromiso.index') }} {{ setActive('compromiso.create') }}">
                             <a href="{{ route('compromiso.index') }}" class="nav-new">
-                            <span><i class="far fa-file-alt"></i>R. Compromisos</span>
+                            <span><i class="fa fa-file-text"></i>ABC</span>
                             </a>
                         </li>
                         <li class=" {{ setActive('evidencia') }} {{ setActive('evidencias_eje') }} {{ setActive('pantalla_evidencia') }} {{ setActive('cargar_evidencia') }} {{ setActive('evidencia.eliminar') }}">
                             <a href="{{ route('evidencias') }}" class="nav-new">
-                            <span><i class="fas fa-file-medical"></i>R. Evidencias</span>
+                            <span><i class="fa fa-file-text"></i>Seguimiento</span>
                             </a>
                         </li>
                     </ul>
