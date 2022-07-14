@@ -82,7 +82,7 @@ Route::post('descargar/{id}','UserController@descargar_archivo')->name('descarga
 
 //------------------------>ADMINISTRADOR->FASES<----------------------------------------------------
 
-Route::get('/faces', 'FasesController@index')->name('fases.index')->middleware('EsAdmin');
+Route::get('/fases', 'FasesController@index')->name('fases.index')->middleware('EsAdmin');
 
 //------------------------>ADMINISTRADOR->AVISOS<----------------------------------------------------
 
@@ -112,7 +112,7 @@ Route::post('/compromisos/nuevo_compromiso','CompromisoController@store')->name(
 Route::put('/compromisos/editar_compromiso/{compromiso}','CompromisoController@update')->name('compromiso.update')->middleware('esSujeto');
 Route::delete('/compromisos/eliminar_compromiso/{compromiso}','CompromisoController@destroy')->name('compromiso.destroy')->middleware('esSujeto');
 //---------------------->Linea del tiempo y avisos-------------------------------
-Route::get('/Inicio', 'InicioController@index')->name('inicio.index')->middleware('esSujeto');
+Route::get('/inicio', 'InicioController@index')->name('inicio.index')->middleware('esSujeto');
 //---------------------->EVIDENCIAS-------------------------------
 // }); //middleware PreventBackHistory
 //----------------------------------------------------------------------------------------------------------------

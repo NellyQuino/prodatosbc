@@ -57,6 +57,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{url('css/Estilos.css?v=').time()}}">
+    <link href="css/radio.css" rel="stylesheet" type="text/css">
 </head>
 
 <body style="background:#F3F3F3;">
@@ -130,14 +131,12 @@
                                 <span> <i class="fa fa-file-text-o"></i>Reportes </span>
                             </a>
                         </li> -->
-                        <li  class="" >
-                            
+                        <li  class="{{ setActive('fases.index') }}" >
                             <a href="{{ route('fases.index') }}" class="nav-new"> 
                                 <span> <i class="fa fa-cog"></i>Fases</span>
                             </a>
                         </li>
-                        <li  class="" >
-                            
+                        <li  class="{{ setActive('avisos.index') }}" >
                             <a href="{{ route('avisos.index') }}" class="nav-new"> 
                                 <span> <i class="fa fa-bell"></i>Avisos</span>
                             </a>

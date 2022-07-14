@@ -19,7 +19,7 @@ class EsAdmin
     {
         $user = Auth::user();
         if (Auth::check() && !$user->esAdmin()  &&  Auth::user()->rol_id == '2') {
-            return redirect('/compromisos');
+            return redirect('/inicio');
         }elseif(Auth::check()  && $user->esAdmin() &&  Auth::user()->rol_id == '1'){
             
             return $next($request);

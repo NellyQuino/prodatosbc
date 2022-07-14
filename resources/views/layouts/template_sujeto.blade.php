@@ -115,7 +115,7 @@
                 </div>
                 <div class="sidebar-content mt-3">
                     <ul class="navbar-nav" style="display: flex;">
-                        <li  class="" >
+                        <li  class="{{ setActive('inicio.index') }}" >
                             <a href="{{ route('inicio.index') }}" class="nav-new"> 
                                 <span> <i class="fa fa-home"></i>Inicio</span>
                             </a>
