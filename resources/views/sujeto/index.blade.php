@@ -1,9 +1,9 @@
 @extends('layouts.template_sujeto')
 @section('content')
 <h1>Información</h1>
-<div class="row" style="margin-bottom: 3rem; margin-top: 1rem;">
+<div class="row" style="margin-bottom: 3rem; margin-top: 1rem; justify-content:center">
     <div class="col-sm-3">
-        <div class="card text-white" style="max-width: 18rem; background-color: #d270ab">
+        <div class="card text-white" style="max-width: 18rem; background-color: #d270ab;">
         <div class="card-header">Implementación</div>
         <div class="card-body">
             <h5 class="card-title">Primary card title</h5>
@@ -31,15 +31,7 @@
         </div>
         </div>
     </div>
-    <div class="col-sm-3">
-        <div class="card text-white" style="max-width: 18rem; background-color: #bf3287">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-            <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-    </div>
+    
 </div>
 <h1>Avisos</h1>
     @forelse ($avisos as $aviso)
