@@ -30,6 +30,6 @@ class Avisos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('avisos');
     }
 }
