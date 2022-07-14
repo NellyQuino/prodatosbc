@@ -4,28 +4,30 @@
 <div class="row" style="margin-bottom: 3rem; margin-top: 1rem;">
     <div class="col-sm-3">
         <div class="card text-white" style="max-width: 18rem; background-color: #d270ab">
-        <div class="card-header">Header</div>
+        <div class="card-header">Implementación</div>
         <div class="card-body">
             <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">En este formato los sujetos obligados responsables seleccionarán los ejes y las acciones que desarrollarán durante el ejercicio anual; asimismo, remitirán la descripción de las actividades concretas que llevarán a cabo en cada línea de acción. </p>
         </div>
         </div>
     </div>
     <div class="col-sm-3">
         <div class="card text-white" style="max-width: 18rem; background-color: #cc5b9f">
-        <div class="card-header">Header</div>
+        <div class="card-header">ABC (altas, bajas, cambios)</div>
         <div class="card-body">
             <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">En este formato, los sujetos obligados que así lo requieran podrán modificar la ruta de implementación inicial, ya que permite seleccionar ejes, estrategias y/o acciones adicionales, dar de baja alguno de los previamente seleccionados y/o cambiar la descripción de las actividades propuestas. </p>
         </div>
         </div>
     </div>
     <div class="col-sm-3">
         <div class="card text-white" style="max-width: 18rem; background-color: #c54793">
-        <div class="card-header">Header</div>
+        <div class="card-header">Seguimiento</div>
         <div class="card-body">
             <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Este formato será la vía para que los responsables remitan al Instituto, las evidencias que respalden las acciones y actividades realizadas a lo largo del ejercicio.
+                Las evidencias deberán estar contenidas en archivos con formato .rar, .zip y/o .7z.  
+            </p>
         </div>
         </div>
     </div>
