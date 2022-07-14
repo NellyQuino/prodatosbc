@@ -1,14 +1,14 @@
 @extends('layouts.template_admin')
 @section('content')
-<div class="btn-group col-xl-12 my-3" role="group" aria-label="Basic radio toggle button group">
+<div class="btn-group col-xl-12 my-3" role="group" aria-label="Basic radio toggle button group" style="border-radius: 25px">
         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-        <label class="btn btn-outline-prim" for="btnradio1">Implementación</label>
+        <label class="btn btn-outline-prim" for="btnradio1" style="font-size:20px;border-radius: 15px">Implementación</label>
 
         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-prim" for="btnradio2">ABC</label>
+        <label class="btn btn-outline-prim" for="btnradio2" style="font-size:20px;border-radius: 15px">ABC</label>
 
         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-        <label class="btn btn-outline-prim" for="btnradio3">Seguimiento</label>
+        <label class="btn btn-outline-prim" for="btnradio3" style="font-size:20px;border-radius: 15px">Seguimiento</label>
     </div>
 <div class="row justify-content-end">
     <div class="text-left">
